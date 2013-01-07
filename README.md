@@ -16,6 +16,6 @@ Once installed the LSP scripts can be accessed from the new LSP menu. The LSP ca
 Note: While the LPI does not tend to change significantly between minor versions, the LSP is currently only tested on 14.7.
 
 Author and Licence
-==================
+----------
 
 The LSP is primiarly written by Thomas Michael Wallace (www.thomasmichaelwallace.co.uk), and released under the GPL v3 licence.
