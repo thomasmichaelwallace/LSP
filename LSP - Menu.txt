@@ -1,6 +1,6 @@
 &LSP
 __main_menu__     
-14.7-4.8
+14.7-4.7
     &Copy and Paste
     __sub_menu__   
         
