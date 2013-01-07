@@ -21,16 +21,18 @@ $ENGINE=VBScript
 'Download and install/update current LSP.
 
 'github url
-github_url = "https://github.com/thomasmichaelwallace/LSP/archive/master.zip"
+github_url = "https://nodeload.github.com/thomasmichaelwallace/LSP/zip/master"
 
 'lsp to be installed locally to lusas drive
 lsp_path = GetSystemString("SCRIPTS") & "LSP"
+unzip_path = lsp_path & "_TMP"
 zip_file = lsp_path & "-master.zip"
 
 'create file system connection
 set filesystem = CreateObject("Scripting.FileSystemObject")
 
 'create and make an xml http request
+'set xml_http = CreateObject("MSXML2.XMLHTTP")
 set xml_http = CreateObject("MSXML2.XMLHTTP")
 xml_http.open "GET", github_url, false
 xml_http.send()
@@ -64,16 +66,24 @@ Set xml_http = Nothing
 
 'create lsp folder, and remove existing if required
 if filesystem.FolderExists(lsp_path) then filesystem.DeleteFolder lsp_path, true
-filesystem.CreateFolder(lsp_path)
+if filesystem.FolderExists(unzip_path) then filesystem.DeleteFolder unzip_path, true
+filesystem.CreateFolder(unzip_path)
 
 'extract contents of zip file
 set unzip = CreateObject("Shell.Application")
 set zipped_files = unzip.NameSpace(zip_file).items
-unzip.NameSpace(lsp_path).CopyHere(zipped_files)
+unzip.NameSpace(unzip_path).CopyHere(zipped_files)
+
+'cope with github subfoldering
+filesystem.MoveFolder unzip_path & "\LSP-master", unzip_path & "\LSP"
+filesystem.MoveFolder unzip_path & "\LSP", GetSystemString("SCRIPTS")
+filesystem.DeleteFolder unzip_path
+filesystem.DeleteFile zip_file
 
 'grabage collect
 Set filesystem = Nothing
 Set unzip = Nothing
 
 'run menu installer
+textwin.writeLine("Installing LSP Menu...")
 call fileOpen(lsp_path & "\LSP - Menu.vbs")
