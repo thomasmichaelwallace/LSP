@@ -1,0 +1,2 @@
+The LSP (LUSAS Scripting Pack) is designed and developed by Thomas Michael Wallace
+<www.thomasmichaelwallace.co.uk>.

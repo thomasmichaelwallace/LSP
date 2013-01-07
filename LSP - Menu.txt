@@ -1,0 +1,147 @@
+&LSP
+__main_menu__     
+14.7-4.7
+    &Copy and Paste
+    __sub_menu__   
+        
+        &Copy Geometry
+            GeoCopy
+            Writes point, line and surface definitions to file for copying geometry between models.
+        &Paste Geometry
+            GeoPaste
+            Pastes geometry definitions copied using LSP.
+        Copy &Loading
+            LoadCopy
+            Writes most types of loading into a file; useful for copying loading information between models.
+        Paste L&oading
+            LoadPaste
+            Pastes loading definitions copied using LSP.
+        Copy Load Com&binations
+            ComboCopy
+            Copies basic load combinations into a file; useful for copying combinations to different models.
+        Paste Load Comb&inations
+            ComboPaste
+            Pastes basic load combinations definitions copied using LSP.
+    Model &Geometry
+    __sub_menu__
+    
+        &Distance Between Points
+            PDist
+            Provides detailed information about the distance between two points.
+        &Merge Two Points
+            PMerge
+            Merge two points to the centre position, even if they are not coincident.
+        Fix Split &Surface Voids
+            Surface
+            Fix voids silently created through surface splitting in LUSAS.
+        &Release Ends
+            UnPinned
+            Apply end release attributes at the intersection between members of different groups (i.e. beams and columns).
+        Generate &Vertical Joints
+            Rail
+            Generate joints between strings of points that are vertically offset from each other; useful for creating a rail with ballast.
+    &Attributes
+    __sub_menu__
+    
+        Find and Replace &Attributes
+            AttrReplace
+            Performs batch find and replaces on attribute assignments, useful for sensitivity checking and last minute design changes!
+        &Match Properties
+            Match
+            Matches attributes and assignments of first selected object to all others.
+        Clea&r Properties
+            Clear
+            Clears all attributes and assignments from the selected objects.        
+    &Loading
+    __sub_menu__
+    
+        Loadcase &Generator
+            Cases 
+            Dervive cases from a loading array, recursively; useful for matching quasi-moving loads to temperature variations.
+        Mass &Delete Loadcases
+            DelLoad
+            Mass delete a range of loadcases; useful when using an old model as a base.
+        &AutoCant Rail Loading
+            AutoCant 
+            Factor the train compound loading to represent the effects of cant and eccentricity (e.g. slew).
+        &Factor Compound Loading
+            Cant
+            As AutoCant, but specifying factors and directions, rather than dimensions.
+        &Find and Replace Combo. Factors
+            RepFact
+            Find and replace load factors in basic combinations.
+        Apply D&ynamic Factor
+            Dynamic
+            Report results with altered live factors for a specific node/element/loadcase.
+    &Complex Load Appliaction
+    __sub_menu__
+    
+        &Curve Compound Load
+            Curve
+            Curves a compound load to match a constant radius; useful for applying train loads to curved bridges.
+        &Resize Curved Patch Load
+            Resize
+            Set the length of a curved patch load; useful for redefining after using the 'Curve' script.
+        Load Lines to &Length
+            Length
+            Apply a load along a continuous series of lines until a length is reached; useful for applying traction loads.    
+    &Reporting and Factors
+    __sub_menu__
+    
+        &Fetch Nodal Results
+            Fetch
+            Fetches the selected results from a single node; useful for checking extracted results and combined effects.    
+        Create Beam &Diagrams
+            Diagrams
+            Mass generate force/moment diagrams across selected beams.
+        &UUID Developer (Nodes)
+            Nuuid
+            Create LSP UUID codes for identifying common nodes across models.
+        Export &Report Groups
+            Report
+            Generate and export Excel reports for specifically named groups.
+    &Views and Layouts
+    __sub_menu__
+
+        Make &Neighbour Visible
+            VisNext
+            Makes the neighbouring surfaces of the selected surface visible.
+        &Organise Groups
+            GSort
+            Sort groups alphabetically.
+        &Label by UUID
+            Labeluuid
+            Label nodes by LSP UUID from a csv file; useful for relating points between models.
+        Set &Colour Scheme
+            Colour
+            Load a LSP colour scheme into LUSAS.
+            
+    __main_seperator__
+
+    LSP Options and &Development
+    __sub_menu__
+        
+        LPI &Debugging Tools
+            Debugger
+            Debugging and development tools for the LPI, see code for specifics.
+        &Restore LUSAS
+            Restore
+            Attempt to restore LUSAS behaviour after an LSP script fails.
+        &Scratch Pad
+            Scratch
+            Run current scratch-pad code (for developers.)
+        &Form Editor
+            __form_editor__
+            Offical LUSAS form editing environment.
+
+        __sub_seperator__
+
+        &Update LSP
+            Install
+            Download and update to the latest version of the LSP.
+
+         __version__
+            Last version/date that the LSP was updated on.
+    - Tom Wallace <www.thomasmichaelwallace.co.uk>
+    __author__
+        The LUSAS Scripting Pack is developed and maintained by Tom Wallace <www.thomasmichaelwallace.co.uk>
