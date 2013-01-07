@@ -6,6 +6,8 @@ The LSP contains over 35 useful (and not so useful) scripts developed, over time
 
 Remember that these scripts can make permenant changes to the model, so save a copy, read the code, understand what will happen and _then_ run it.
 
+A full list of the scripts, along with a brief description of what they do, can be found in the [menu definition file](https://github.com/thomasmichaelwallace/LSP/blob/master/LSP%20-%20Menu.txt "Definition").
+
 Installing
 ----------
 
