@@ -21,6 +21,7 @@ $ENGINE=VBScript
 'Download and install/update current LSP.
 
 'form a random github url to stop local caching prevening updates
+Randomize
 append_req = int((100-1+1)*Rnd+1)
 github_url = "https://nodeload.github.com/thomasmichaelwallace/LSP/zip/master?rndno=" & cstr(append_req)
 
