@@ -92,7 +92,12 @@ function encode_uuid(node_x, node_y, node_z)
 	
 	'condense into single uuid
 	encode_uuid = str_x & chr_limit & str_y & chr_limit & str_z
-		
+
+	'make excel-safe
+	encode_uuid = "'" & encode_uuid
+	encode_uuid = replace(encode_uuid, """", """""")
+	encode_uuid = """" & encode_uuid & """"
+
 end function
 
 function encode_coord(coord)
