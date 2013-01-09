@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Loadcase Generator
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -21,40 +21,40 @@ $ENGINE=VBScript
 'Automagically define loadcases from loading arrays.
 
 'arrays
-dim suffixes()				'suffixes to array
-dim switches()				'blocks that switch
-dim commons()					'blocks that don't switch
+dim suffixes()			'suffixes to array
+dim switches()			'blocks that switch
+dim commons()			'blocks that don't switch
 dim permutations()		'total suffix permutations
-dim blocks()					'blocks for switching input
+dim blocks()			'blocks for switching input
 
 'loadcase objects
-dim def_case 					'loadcase object
-dim def_ids						'load id
+dim def_case 			'loadcase object
+dim def_ids			'load id
 dim def_eigenvalues		'eigenvalue id
-dim def_factors				'factor
-dim def_harmonics			'harmonics id
-dim def_results 			'result id
-dim def_load					'load object
+dim def_factors			'factor
+dim def_harmonics		'harmonics id
+dim def_results 		'result id
+dim def_load			'load object
 
 'counters
-dim suffix_count			'count of defined suffix arrays
-dim switch_count			'count of switching blocks
-dim switch_index			'current switching block
-dim row								'current row
-dim branches					'number of prefixes
-dim branch						'current prefix
-dim is_common					'flag for common blocks
-dim perm_count 				'permutations count
+dim suffix_count		'count of defined suffix arrays
+dim switch_count		'count of switching blocks
+dim switch_index		'current switching block
+dim row				'current row
+dim branches			'number of prefixes
+dim branch			'current prefix
+dim is_common			'flag for common blocks
+dim perm_count 			'permutations count
 
 'objects
 'dim switch_array()		'array defining switching load
 'dim common_array()		'array defining common load
-dim permutation()			'permutation object
+dim permutation()		'permutation object
 
 'user options
-dim def_name					'defining case to duplicate
-dim def_string				'string defining suffix array
-dim def_suffix				'array from string definition
+dim def_name			'defining case to duplicate
+dim def_string			'string defining suffix array
+dim def_suffix			'array from string definition
 
 'get basic user options
 def_name = Inputbox("Definition case","Loadcase Array","ULS Combo 1")

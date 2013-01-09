@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Loadcase Remover
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -20,10 +20,10 @@ $ENGINE=VBScript
 
 'Mass delete range of loadsets.
 
-dim id_from					'loadcase id to start deleteing at
-dim id_to						'loadcase id to finish deleteing at
-dim lcid						'loadcase id to delete
-dim repeat_mode			'repeat switch
+dim id_from		'loadcase id to start deleteing at
+dim id_to		'loadcase id to finish deleteing at
+dim lcid		'loadcase id to delete
+dim repeat_mode		'repeat switch
 
 'be tolerant of missing loadcases
 on error resume next

@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Autocant
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -21,40 +21,40 @@ $ENGINE=VBScript
 'Automagically distribute a vertical load accoridng to cant and centrigual proportion
 
 'objects and properties
-dim compound				'compound loading object
-dim discrete				'discrete loading object
-dim pos							'current position data
-dim P 							'current loading data
-dim y								'y position to point
+dim compound			'compound loading object
+dim discrete			'discrete loading object
+dim pos				'current position data
+dim P 				'current loading data
+dim y				'y position to point
 
 'iterators
-dim index						'index counter for compound library
-dim row							'row of position data
+dim index			'index counter for compound library
+dim row				'row of position data
 
 'workings
-dim shift						'shift in centre of gravity
-dim cant_cos				'vertical component of in-plane moment reaction
+dim shift			'shift in centre of gravity
+dim cant_cos			'vertical component of in-plane moment reaction
 
 'factors
 dim high_factor			'factor to be applied to high loads
 dim low_factor			'factor to be appleid to low loads
 dim static_high			'high factor due to static loading
 dim static_low			'low factor due to static loading
-dim dynamic					'factor due to dynamic loading
+dim dynamic			'factor due to dynamic loading
 dim load_factor			'factor applied to current load
 
 'user options
-dim name						'name of compound load to apply to
-dim cant						'cant of rail
+dim name			'name of compound load to apply to
+dim cant			'cant of rail
 dim centrigual			'proprtion of vertical load that is centrfugal
-dim north						'high rail is north
-dim e								'eccentricity
+dim north			'high rail is north
+dim e				'eccentricity
 
 'functional constants
-dim split						'split already applied by load generator
-dim equator					'point where high/low are divided
-dim gauge						'standard gauge width
-dim offset					'height at which centrigual loading is applied
+dim split			'split already applied by load generator
+dim equator			'point where high/low are divided
+dim gauge			'standard gauge width
+dim offset			'height at which centrigual loading is applied
 
 'set user options
 name = Inputbox("Compound Name","Quick Canter","LM71 + Cf Vert Train (Centre)")
@@ -68,8 +68,8 @@ else
 end if
 
 'set default options
-split = 0.5					'default by load generator
-equator = 0.0				'default by load generator
+split = 0.5			'default by load generator
+equator = 0.0			'default by load generator
 gauge = 1435.0			'standard gauge
 offset = 1800.0			'as eurocode
 
@@ -110,7 +110,7 @@ for index = 0 to compound.countLoading() - 1
 		call textwin.writeline(discrete.getDiscreteLoadType())
 
 		'test array dimensions to cope with LUSAS' random return values
-		if IsArray(pos(0)) then '(LINE 96)
+		if IsArray(pos(0)) then
 			call textwin.writeLine("double")
 			y = pos(0)(1)
 		else

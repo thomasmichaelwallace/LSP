@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Menu Parser
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -22,25 +22,25 @@ $ENGINE=VBScript
 'on start-up to make presitent.
 
 'lusas menus
-dim root						'lusas root menu
-dim lsp_menu				'main lsp menu
-dim sub_menu				'lsp sub menu
+dim root			'lusas root menu
+dim lsp_menu			'main lsp menu
+dim sub_menu			'lsp sub menu
 
 'menu definition file
 dim filesystem			'file system access
-dim text_file				'open file
+dim text_file			'open file
 
 'definition parser
-dim item						'menu text
-dim command					'menu or definition command
-dim help						'help string
+dim item			'menu text
+dim command			'menu or definition command
+dim help			'help string
 
 'script options
-dim install					'check install return
+dim install			'check install return
 dim script_path			'script access path
-dim file_path				'definition file path
-dim check_lsp_string'expected menu name
-dim install_message	'update/install prefix
+dim file_path			'definition file path
+dim check_lsp_string		'expected menu name
+dim install_message		'update/install prefix
 
 'script options
 script_path = GetSystemString("SCRIPTS") & "LSP\LSP - "

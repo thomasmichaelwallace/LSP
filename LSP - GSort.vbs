@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Sort Groups
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -22,26 +22,26 @@ $ENGINE=VBScript
 Option Explicit
 
 'group objects
-dim groups				'model groups
-dim group					'current working group
-dim slot					'slot for working group
-dim buffer				'buffer to copy
+dim groups		'model groups
+dim group		'current working group
+dim slot		'slot for working group
+dim buffer		'buffer to copy
 
 'maps
 dim group_map()		'current/slot id map
 dim isempty_map()	'history of created groups
 
 'counters and boundaries
-dim group_id			'current group id
-dim map_id				'current map id
-dim map_base			'map starting point
-dim map_count			'total number of groups to sort
-dim map_bound			'allocation of groups to sort
+dim group_id		'current group id
+dim map_id		'current map id
+dim map_base		'map starting point
+dim map_count		'total number of groups to sort
+dim map_bound		'allocation of groups to sort
 
 'bubble sort objects
 dim bubble_move		'flag for end of bubble sort
 dim compare_name	'name to compare...
-dim to_name				'...against name
+dim to_name		'...against name
 
 'layer 1 is the master layer; cannot be sorted.
 map_base = 2
@@ -58,8 +58,8 @@ map_id = map_base
 
 'populate group maps
 for each group in groups
-		group_map(map_id) = group.getID()
-		map_id = map_id + 1
+	group_map(map_id) = group.getID()
+	map_id = map_id + 1
 next
 
 'provide worse-case sort-time

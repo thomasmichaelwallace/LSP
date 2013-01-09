@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Clear Properties
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -22,8 +22,8 @@ $ENGINE=VBScript
 
 Option Explicit
 
-dim elements			'objects selected
-dim element				'object to change
+dim elements		'objects selected
+dim element		'object to change
 dim assignments		'properties to match
 dim assignment		'current matching property
 dim assignattr		'current assigning attribute

@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Curve
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -20,19 +20,19 @@ $ENGINE=VBScript
 
 'Curves a compound discrete load about a radii
 
-dim compound				'compound loading object
-dim discrete				'discrete loading object
-dim index						'index counter for compound library
-dim row							'row of position data
-dim pos							'current position data
-dim curved_pos			'curved position data
-dim three						'definition is 3d or 2d
-dim x								'x position to translate
-dim y								'y position to translate
+dim compound		'compound loading object
+dim discrete		'discrete loading object
+dim index		'index counter for compound library
+dim row			'row of position data
+dim pos			'current position data
+dim curved_pos		'curved position data
+dim three		'definition is 3d or 2d
+dim x			'x position to translate
+dim y			'y position to translate
 
-dim name						'name of compound load to apply to
-dim radius					'radius to apply
-dim offset					'angle to offset (+ve clockwise)
+dim name		'name of compound load to apply to
+dim radius		'radius to apply
+dim offset		'angle to offset (+ve clockwise)
 
 'set user options
 name = Inputbox("Compound Name","Compund Curve","Cmp")
@@ -75,14 +75,14 @@ next
 Sub LineToCurve(ByRef line)
 	'convert a line patch into a curve patch
 
-	dim row					'row counter
-	dim x						'x coordinate of row
-	dim y						'y coordinate of row
-	dim count				'total number of defining rows (expected to be 2)
-	dim rows				'new rows defining curve
-	dim pdir				'original projection vector
-	dim dirtype			'direction type
-	dim project			'projection vector to set
+	dim row			'row counter
+	dim x			'x coordinate of row
+	dim y			'y coordinate of row
+	dim count		'total number of defining rows (expected to be 2)
+	dim rows		'new rows defining curve
+	dim pdir		'original projection vector
+	dim dirtype		'direction type
+	dim project		'projection vector to set
 	dim project_x		'projection vector x
 	dim project_y		'projection vector y
 	dim project_z		'projtetion vector z	
@@ -170,19 +170,19 @@ Function CartToPara(x, y, r, o, i, j)
 	
 	'(x, y) - coordinate, r - radius, o - offset angle (deg), (i, j) - offset vector
 	
-	Dim s					  'arc length
-	Dim a					  'circle centre x
-	Dim b					  'circle centre y
-	Dim theta			  'arc angle
-	Dim t					  'parametric angle	
-	Dim c					  'parametric radius
-	Dim x_p				  'parametric x
-	Dim y_p				  'parametric y
-	Dim para(2)		  'parametric array
+	Dim s			'arc length
+	Dim a			'circle centre x
+	Dim b			'circle centre y
+	Dim theta		'arc angle
+	Dim t			'parametric angle	
+	Dim c			'parametric radius
+	Dim x_p			'parametric x
+	Dim y_p			'parametric y
+	Dim para(2)		'parametric array
 	Dim coord(2)		'coordinate array
 	Dim blank(2)		'blank array
-	Dim pi				  'the tasty constant
-	Dim delta				'offset angle
+	Dim pi			'the tasty constant
+	Dim delta		'offset angle
 	
 	'assign pi, which is inexplicably outside of the vb scope
 	pi = 4.0 * atn(1.0)

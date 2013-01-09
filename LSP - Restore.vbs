@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Restore
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -20,6 +20,6 @@ $ENGINE=VBScript
 
 'Restore LUSAS after an LSP script fails
 
-call setManualRefresh(false)				'set refreshing to automatic
-call suppressMessages(0)						'restore textwin messages
+call setManualRefresh(false)		'set refreshing to automatic
+call suppressMessages(0)		'restore textwin messages
 call unInitStatusBarProgressCtrl()	'clear any progress bars

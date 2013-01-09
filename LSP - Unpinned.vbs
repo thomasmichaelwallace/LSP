@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Pin Beams
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -21,36 +21,36 @@ $ENGINE=VBScript
 'Converts beam ends to pins of selected group where intersected with columns.
 
 'collections
-dim lines						'lines forming beams
-dim points					'points forming current beam
-dim branches				'lines attached to beam forming points
+dim lines		'lines forming beams
+dim points		'points forming current beam
+dim branches		'lines attached to beam forming points
 
 'objects
-dim line						'current beam line
-dim point						'current beam line end
-dim branch					'current beam/column attached to beam line end
+dim line		'current beam line
+dim point		'current beam line end
+dim branch		'current beam/column attached to beam line end
 
 'fixity data
-dim fixity(1)				'applied fixity matrix (0 is start, 1 is end)
-dim fixity_point		'index for apply fixity
+dim fixity(1)		'applied fixity matrix (0 is start, 1 is end)
+dim fixity_point	'index for apply fixity
 
 'column attributes
-dim line_mesh				'beam mesh assignments
-dim line_fixity			'existing beam fixity assignment
+dim line_mesh		'beam mesh assignments
+dim line_fixity		'existing beam fixity assignment
 
 'mesh applications
-dim pinned					'mesh applied when beam is released at both ends
-dim pinned_start		'mesh applied when beam is released at start
-dim pinned_end			'mesh applied when beam is released at end
-dim fixed						'mesh applied when beam is no end releases
+dim pinned		'mesh applied when beam is released at both ends
+dim pinned_start	'mesh applied when beam is released at start
+dim pinned_end		'mesh applied when beam is released at end
+dim fixed		'mesh applied when beam is no end releases
 
 'script options
-dim pinned_id				'id for pinned mesh
+dim pinned_id		'id for pinned mesh
 dim pinned_start_id	'id for pinned at start mesh
-dim pinned_end_id		'id for pinned at end mesh
-dim fixed_id				'id for fixed mesh
-dim beam_group			'beam group name
-dim column_group		'column group name
+dim pinned_end_id	'id for pinned at end mesh
+dim fixed_id		'id for fixed mesh
+dim beam_group		'beam group name
+dim column_group	'column group name
 
 'script options
 fixed_id = inputbox("Fixed beam connection attribute ID", "Pin Beam", "1")

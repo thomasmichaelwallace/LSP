@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Geometry Copy
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -21,8 +21,8 @@ $ENGINE=VBScript
 'Copy selected LUSAS geometry definition to file; for later use by LSP Geometry Paste.
 'Copy support also provided for assignments, but not fully implemented.
 
-dim TEXT_FILE				'text file object to write data to	
-dim copy_mode				'result of msgbox
+dim TEXT_FILE		'text file object to write data to	
+dim copy_mode		'result of msgbox
 
 copy_mode = msgbox("Do you want to copy assignments in addition to the geometry?", _
 	vbYesNoCancel + vbQuestion, "Copy Geometry")
@@ -41,22 +41,22 @@ sub CopyGeometry(assign)
 	'copy selected geometry to a definition file
 
 	dim filesystem		'file system access
-	dim file_path			'path to copy file
+	dim file_path		'path to copy file
 
-	dim points				'selected points
-	dim lines					'selected lines
-	dim combined_lines'selected combined lines
-	dim surfaces			'selected surfaces	
+	dim points		'selected points
+	dim lines		'selected lines
+	dim combined_lines	'selected combined lines
+	dim surfaces		'selected surfaces	
 
-	dim point					'current point
-	dim line					'current line
-	dim surface				'current surface
+	dim point		'current point
+	dim line		'current line
+	dim surface		'current surface
 
-	dim def_array			'array of definitions
+	dim def_array		'array of definitions
 
-	dim lofs					'lower order features
-	dim lof_count			'total lofs to write
-	dim lof_start			'start position of lof definition
+	dim lofs		'lower order features
+	dim lof_count		'total lofs to write
+	dim lof_start		'start position of lof definition
 	
 	dim bulge_coords	'coordinates of arc/circle bulge
 	dim end_coords		'coordinates of arc/circle end
@@ -66,11 +66,11 @@ sub CopyGeometry(assign)
 	dim facet_start		'start position of spline facet definitions
 
 	dim boundaries		'total surface boundaries
-	dim boundary			'current surface boundary
+	dim boundary		'current surface boundary
 	dim trust_order		'flag for surface orientation reliablilty
 	
-	dim i							'counter
-	dim count					'count of objects copied
+	dim i			'counter
+	dim count		'count of objects copied
 	dim total_lines		'total number of lines to create	
 
 	'script level defaults and options

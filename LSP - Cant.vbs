@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Cant
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -21,15 +21,15 @@ $ENGINE=VBScript
 'Convert a simple train load into one which is factored by North/South rail.
 
 'objects and properties
-dim compound				'compound loading object
-dim discrete				'discrete loading object
-dim pos							'current position data
-dim P 							'current loading data
-dim y								'y position to point
+dim compound			'compound loading object
+dim discrete			'discrete loading object
+dim pos				'current position data
+dim P 				'current loading data
+dim y				'y position to point
 
 'iterators
-dim index						'index counter for compound library
-dim row							'row of position data
+dim index			'index counter for compound library
+dim row				'row of position data
 
 'factors
 dim north_factor		'factor to be applied to north loads
@@ -37,15 +37,15 @@ dim south_factor		'factor to be appleid to south loads
 dim load_factor			'factor applied to current load
 
 'user options
-dim name						'name of compound load to apply to
-dim factor					'global factor to apply to all loads
+dim name			'name of compound load to apply to
+dim factor			'global factor to apply to all loads
 dim north_ratio			'ratio of north track loading
 dim south_ratio			'ratio of south track loading
-dim axis						'axis to rotate to
+dim axis			'axis to rotate to
 
 'functional constants
-dim split						'split already applied by load generator
-dim equator					'point where north/south are divided
+dim split			'split already applied by load generator
+dim equator			'point where north/south are divided
 
 'set user options
 name = Inputbox("Compound Name","Canter","Cmp")

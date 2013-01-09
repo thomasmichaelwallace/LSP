@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Merge Points
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -20,13 +20,13 @@ $ENGINE=VBScript
 
 'Force two points to merge, even if they are not geometrically coincident.
 
-dim points					'points to operate on
-dim p1							'point from
-dim p2							'point to
+dim points		'points to operate on
+dim p1			'point from
+dim p2			'point to
 
-dim x								'centre x
-dim y								'centre y
-dim z								'centre z
+dim x			'centre x
+dim y			'centre y
+dim z			'centre z
 
 points = selection.getObjects("Points")
 

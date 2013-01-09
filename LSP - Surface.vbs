@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Surface Fix
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -21,18 +21,18 @@ $ENGINE=VBScript
 'Attempt to fix perimeter for gaps in surface definitions on 'Fix' layer.
 
 'counts
-dim surface_count			'count of surfaces checked
+dim surface_count		'count of surfaces checked
 dim interface_count		'count of interfaces 
-dim fix_count					'count of surfaces redefiend
-dim crash_count				'count to prevent crashing
+dim fix_count			'count of surfaces redefiend
+dim crash_count			'count to prevent crashing
 
 'options
-dim fix_group					'name of group to be fixed
-dim fixed_group				'where to dump fixed surfaces
-dim crash_max					'runs until mesh is allowed
-dim crash_protect			'attempt to hone apparent access violations
-dim debug_mode				'further debugging for vbscripting
-dim edge_protect			'focused debugging for 'edge' members
+dim fix_group			'name of group to be fixed
+dim fixed_group			'where to dump fixed surfaces
+dim crash_max			'runs until mesh is allowed
+dim crash_protect		'attempt to hone apparent access violations
+dim debug_mode			'further debugging for vbscripting
+dim edge_protect		'focused debugging for 'edge' members
 
 'configuration
 fix_group = inputbox("Group name to fix surfaces on", "Surface Fix", "Fix")
@@ -89,25 +89,25 @@ function SurfFix()
 	'fix selected surfaces where voids have formed due to modelling errors
 	
 	'collections
-	dim surfaces					'collection of selected surfaces
-	dim define_lines			'collection of defining lines
+	dim surfaces			'collection of selected surfaces
+	dim define_lines		'collection of defining lines
 	dim define_surfaces		'collection of surfaces linked to the line	
-	dim define_points			'collection of points defining surface line
-	dim point_lines				'collection of lines defined by point
-	dim check_points			'collection of points linked to a line
-	dim check_lines				'collection of lines for check-back	
-	dim back_points				'collections of points for check-back
+	dim define_points		'collection of points defining surface line
+	dim point_lines			'collection of lines defined by point
+	dim check_points		'collection of points linked to a line
+	dim check_lines			'collection of lines for check-back	
+	dim back_points			'collections of points for check-back
 	
 	'members
-	dim surface						'surface being assesed
-	dim define_line				'definition line being assesed
-	dim master_point			'point to investigate
-	dim slave_point				'point to check-back to
-	dim point_line				'line defined by master point being assesed
-	dim check_point				'point checked as mid-point	
-	dim check_line				'final line implied by match
-	dim back_point				'point to compare for check-back
-	dim fix_surface				'surface to be fixed
+	dim surface			'surface being assesed
+	dim define_line			'definition line being assesed
+	dim master_point		'point to investigate
+	dim slave_point			'point to check-back to
+	dim point_line			'line defined by master point being assesed
+	dim check_point			'point checked as mid-point	
+	dim check_line			'final line implied by match
+	dim back_point			'point to compare for check-back
+	dim fix_surface			'surface to be fixed
 		
 	'setup environment
 	SurfFix = false
@@ -206,10 +206,10 @@ sub CleverTrim(surface, remove_line, off_line, back_line)
 
 	Dim new_surface_lines		'outline of trimmed surface
 	Dim new_combined_line		'combined top lines
-	Dim assignments					'collection of assignments to match		
-	Dim assignment					'specific assignment matching
-	Dim new_surface					'trimmed surface
-	Dim attr								'attribute for assignement
+	Dim assignments			'collection of assignments to match		
+	Dim assignment			'specific assignment matching
+	Dim new_surface			'trimmed surface
+	Dim attr			'attribute for assignement
 	
 	'develop outline for replacement surface
 	set new_surface_lines = newObjectSet()

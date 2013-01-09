@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Web-Installer
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -19,6 +19,20 @@ $ENGINE=VBScript
 '    along with The LSP.  If not, see <http://www.gnu.org/licenses/>.
 
 'Download and install/update current LSP.
+
+dim github_url		'github hosted lsp zip url
+dim append_req		'randomised request append to prevent cache
+
+dim lsp_path		'install path of lsp
+dim unzip_path		'temporary unzip path
+dim zip_file		'zip file location
+
+dim filesystem		'filesystem connection
+dim zipped_files	'files within zip
+dim unzip		'unzip connection
+
+dim xml_http		'http connection object
+dim ado_stream		'http response stream
 
 'form a random github url to stop local caching prevening updates
 Randomize

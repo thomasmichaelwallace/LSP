@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Colour
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -22,24 +22,24 @@ $ENGINE=VBScript
 
 'menu definition file
 dim filesystem			'file system access
-dim text_file				'open file
+dim text_file			'open file
 
 'definition parser
 dim colour_def			'colour definition
 
 'pen codes
-dim pen_no					'pen number
-dim pen_width				'default pen width
-dim pen_style				'default pen style
+dim pen_no			'pen number
+dim pen_width			'default pen width
+dim pen_style			'default pen style
 
 'colour codes
-dim red_code				'red byte
+dim red_code			'red byte
 dim green_code			'green byte
-dim blue_code				'blue byte
+dim blue_code			'blue byte
 
 'colour file
 dim script_path			'script access path
-dim file_path				'definition file path
+dim file_path			'definition file path
 
 'script options
 script_path = GetSystemString("SCRIPTS") & "LSP\LSP - "
@@ -59,8 +59,8 @@ do until text_file.AtEndOfStream
 	colour_def = trim(text_file.ReadLine)
 	
 	'parse
-	pen_no 			= cint(trim(split(colour_def,":")(0)))
-	red_code 		= cint(trim(split(split(colour_def,":")(1),",")(0)))
+	pen_no 		= cint(trim(split(colour_def,":")(0)))
+	red_code 	= cint(trim(split(split(colour_def,":")(1),",")(0)))
 	green_code 	= cint(trim(split(split(colour_def,":")(1),",")(1)))
 	blue_code 	= cint(trim(split(split(colour_def,":")(1),",")(2)))
 

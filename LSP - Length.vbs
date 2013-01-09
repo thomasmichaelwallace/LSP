@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Load Length
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -27,19 +27,19 @@ sub SetupLength()
 	'establishes the scenario to load
 
 	'database objects
-	dim line						'spawnning line element
-	dim points					'points of line element
-	dim loading					'loading attribute pointer
+	dim line		'spawnning line element
+	dim points		'points of line element
+	dim loading		'loading attribute pointer
 	
 	'geometry
-	dim east_point			'east point index
-	dim west_point			'west point indext
-	dim actual_length		'actual length counter
+	dim east_point		'east point index
+	dim west_point		'west point indext
+	dim actual_length	'actual length counter
 
 	'user options
-	dim load_name				'name of load to apply
-	dim direction				'direction to follow
-	dim target_length		'length to aim for
+	dim load_name		'name of load to apply
+	dim direction		'direction to follow
+	dim target_length	'length to aim for
 
 	'check selection for line
 	if selection.count("Line") <> 1 then
@@ -94,12 +94,12 @@ end sub
 function LoadLength(first_line, follow_point, target_length, loading)
 	'follows a line along a direction and loads all following lines
 
-	dim lines						'collection of lines associated at point
-	dim line						'current line
-	dim points					'collection of points associated with line
-	dim point						'current point
-	dim total_length		'length count
-	dim i								'array counter
+	dim lines		'collection of lines associated at point
+	dim line		'current line
+	dim points		'collection of points associated with line
+	dim point		'current point
+	dim total_length	'length count
+	dim i			'array counter
 	
 	'initial conditions
 	total_length = 0.0	

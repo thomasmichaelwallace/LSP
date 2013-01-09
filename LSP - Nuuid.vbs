@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Node UUID'r
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -20,19 +20,19 @@ $ENGINE=VBScript
 
 'Generate uuids for nodes to allow direct comparision between models
 
-dim file_path			'uuid file path
+dim file_path		'uuid file path
 dim filesystem		'file system conneciton
-dim text_file			'report file
+dim text_file		'report file
 
-dim nodes					'selected nodes
-dim node					'working nodes
+dim nodes		'selected nodes
+dim node		'working nodes
 
-dim node_x				'x coordinate
-dim node_y				'y coordinate
-dim node_z				'z coordinate
+dim node_x		'x coordinate
+dim node_y		'y coordinate
+dim node_z		'z coordinate
 
-dim uuid					'uuid as x_y_z
-dim node_id				'node id
+dim uuid		'uuid as x_y_z
+dim node_id		'node id
 
 'dump uuids in file path
 file_path = inputbox("Label file", "UUID Labeller", "uuid") & ".csv"
@@ -77,9 +77,9 @@ set text_file = nothing
 function encode_uuid(node_x, node_y, node_z)
 	'returns the uuid of a node from xyz coordinates
 
-	dim str_x			'x uuid
-	dim str_y			'y uuid
-	dim str_z			'z uuid
+	dim str_x	'x uuid
+	dim str_y	'y uuid
+	dim str_z	'z uuid
 	dim chr_limit	'delimiter
 	
 	'take next out-of-range printable character
@@ -103,26 +103,26 @@ end function
 function encode_coord(coord)
 	'returns uuid encoded coordinate
 
-	dim s_coord			'coordinate string
-	dim uuid				'developed uuid
+	dim s_coord		'coordinate string
+	dim uuid		'developed uuid
 	
-	dim codes				'coordinate codes
-	dim code				'section codes
+	dim codes		'coordinate codes
+	dim code		'section codes
 	
-	dim sector			'number sector
-	dim pos					'number position
+	dim sector		'number sector
+	dim pos			'number position
 
 	dim chr_code		'developed character code
-	dim chr_offset	'zero character code
+	dim chr_offset		'zero character code
 	dim chr_skip		'manage npc [delete] in mid-talbe
-	dim chr_dec			'character_code of decimal
+	dim chr_dec		'character_code of decimal
 	
 	'set codes
-	chr_offset = 33			'start from !, ignoring [space]
-	chr_skip_com = 44		'skip commas for csv
+	chr_offset = 33		'start from !, ignoring [space]
+	chr_skip_com = 44	'skip commas for csv
 	chr_skip_del = 127	'skip non-printable [delete]
 	chr_dec = chr(chr_offset + 100 + 2)
-											'keep decimal point code out of range
+				'keep decimal point code out of range
 
 	'encoding requires string content and decimal place
 	s_coord = cstr(coord)

@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Geometry Paste
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -22,8 +22,8 @@ $ENGINE=VBScript
 'not supported.
 
 dim DEFINITIONS			'geometric definitions
-dim POINT_MAP				'map between old ids and new points
-dim LINE_MAP				'map between old ids and new lines
+dim POINT_MAP			'map between old ids and new points
+dim LINE_MAP			'map between old ids and new lines
 dim SURFACE_MAP			'map between old ids and new surfaces
 
 'switch board for assignments, [not implemented]
@@ -42,31 +42,31 @@ function PasteGeometry()
 	'paste geometry from definition file
 
 	dim filesystem		'file system access
-	dim file_path			'path to definition file
-	dim text_file			'definition file
+	dim file_path		'path to definition file
+	dim text_file		'definition file
 	
 	dim surface_types	'map between lpi type codes and surface names
 
 	dim def_string		'current definition string
 
-	dim type_code			'geometry type code
+	dim type_code		'geometry type code
 	dim subtype_code	'geometry subtype code	
-	dim id						'old id
-	dim def_mode			'line definition mode
+	dim id			'old id
+	dim def_mode		'line definition mode
 	
-	dim point					'current point
-	dim line					'current line
-	dim surface				'current surface
+	dim point		'current point
+	dim line		'current line
+	dim surface		'current surface
 	
 	dim boundaries		'surface boundaries
-	dim boundary			'current surface boundary
+	dim boundary		'current surface boundary
 	
 	dim from_index		'position from index
-	dim index					'current position index
-	dim to_index			'position to index
+	dim index		'current position index
+	dim to_index		'position to index
 	
-	dim i							'iterator
-	dim count					'total pasted
+	dim i			'iterator
+	dim count		'total pasted
 	
 	dim total_lines		'total number of lines to process
 
@@ -297,7 +297,7 @@ end sub
 sub get_map(from_index, to_index, map, name)
 	'fetch matched type from definttions array
 
-	dim i							'counter	
+	dim i	'counter	
 	
 	call selection.remove("All")
 
@@ -320,16 +320,16 @@ end function
 sub manual_surface(surface, from_index, to_index)
 	'manually set surface orientation
 	
-	dim cycle_max			'maximum cycle orientations
+	dim cycle_max		'maximum cycle orientations
 	dim cycle_order		'correct lof definition order
 	
-	dim lofs					'surface lofs
-	dim lof						'current lof being tested
+	dim lofs		'surface lofs
+	dim lof			'current lof being tested
 	
-	dim correct				'correct orientation flag
+	dim correct		'correct orientation flag
 	
-	dim i							'counter
-	dim mode					'mode switcher for reversal
+	dim i			'counter
+	dim mode		'mode switcher for reversal
 	
 	call geometryData.setAllDefaults()
 	

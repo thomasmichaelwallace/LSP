@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Load Copy
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -21,35 +21,35 @@ $ENGINE=VBScript
 'Write load attribute definitions to file for pasting using the LSP Load Paste command.
 
 'collections
-dim loadings				'total loadings in model
-dim copy_ids				'ids of loads to copy
-dim names						'name of load variables
+dim loadings			'total loadings in model
+dim copy_ids			'ids of loads to copy
+dim names			'name of load variables
 
 'objects
-dim copy_id					'id of load being copied
-dim loading					'load being copied
-dim name						'name of current variable being copied
-dim value						'value of variable to be copied
-dim pos							'formated position coordinate array
+dim copy_id			'id of load being copied
+dim loading			'load being copied
+dim name			'name of current variable being copied
+dim value			'value of variable to be copied
+dim pos				'formated position coordinate array
 
 'counters
-dim rows						'rows of additional information
-dim row							'current row
+dim rows			'rows of additional information
+dim row				'current row
 
 'storage
 dim loading_type		'loading type being copied
 dim loading_name		'name of loading being copied
-dim values					'string of values to be copied
+dim values			'string of values to be copied
 dim copy_string			'concercated copying string
 
 'filesytem objects
 dim filesystem			'file system access
-dim text_file				'text file to save copying data
+dim text_file			'text file to save copying data
 
 'options
-dim copy_ids_string	'ids to copy as a delimited string
-dim copy_ids_default'default ids
-dim file_path				'file path to save copied data
+dim copy_ids_string		'ids to copy as a delimited string
+dim copy_ids_default		'default ids
+dim file_path			'file path to save copied data
 
 'script level defaults and options
 copy_ids_default = "All"

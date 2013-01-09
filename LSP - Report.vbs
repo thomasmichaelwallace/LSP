@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Bulk Reporter
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -21,34 +21,34 @@ $ENGINE=VBScript
 'Automate bulk result reporting for envolopes over named groups
 
 'collections
-dim loadcase_results()	'selected loadcase results filenames
+dim loadcase_results()		'selected loadcase results filenames
 dim loadcase_names()		'selected loadcase names
 dim loadcase_ids		'selected loadcase ids
-dim groups					'model groups
+dim groups			'model groups
 
 'objects
-dim group						'current group
-dim loadcase				'current loadcase
+dim group			'current group
+dim loadcase			'current loadcase
 
 'data
 dim group_name			'current group name
 dim report_path			'report file name and path
 
 'counters
-dim count						'number of reports generated
-dim id							'current loadcase id
-dim index						'current loadcase index
+dim count			'number of reports generated
+dim id				'current loadcase id
+dim index			'current loadcase index
 
 'user options
-dim loadcase_string	'loadcase selection string array
-dim entitiy					'entity to report on
+dim loadcase_string		'loadcase selection string array
+dim entitiy			'entity to report on
 dim mode_suffix			'mode to report in
-dim component_strnig'string array of components to report
+dim component_strnig		'string array of components to report
 
 'script options
-dim prefix					'reportable group prefix indentifier
+dim prefix			'reportable group prefix indentifier
 dim components			'componenets to report
-dim mode						'mode string
+dim mode			'mode string
 
 'user options
 loadcase_string = inputbox("Loadcases (1;2;...)", "Report Generator", "1364;1365;1368;1369")

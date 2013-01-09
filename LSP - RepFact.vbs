@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Factor Find and Replace
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -21,25 +21,25 @@ $ENGINE=VBScript
 'Find and replace factors in loadsets.
 
 'collections
-dim loadsets				'complete list of loadsets
-dim ids							'loadcase ids
-dim results					'result files ids
+dim loadsets			'complete list of loadsets
+dim ids				'loadcase ids
+dim results			'result files ids
 dim eignevalues			'eigenvalue ids
-dim harmonics				'harmonic ids
-dim factors					'existing factors
+dim harmonics			'harmonic ids
+dim factors			'existing factors
 dim replacements		'replacement factors
 
 'objects
-dim loadset					'current loadset
-dim index						'current row
+dim loadset			'current loadset
+dim index			'current row
 
 'flags
-dim count						'number of matches
-dim match						'matching flag
+dim count			'number of matches
+dim match			'matching flag
 
 'options
 dim find_factor			'original factor to check for
-dim replace_factor	'factor to replace with
+dim replace_factor		'factor to replace with
 
 'get user options
 find_factor = cdbl(inputbox("Find factor", "Factor Replace", "2.35"))

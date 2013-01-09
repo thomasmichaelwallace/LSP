@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Bulk Attribute Find and Replace
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -23,17 +23,17 @@ $ENGINE=VBScript
 'objects and collections
 dim attr_finds			'array of attributes to find
 dim attr_replaces		'array of attributes to replace found with
-dim attr_find				'attribute to find
+dim attr_find			'attribute to find
 dim attr_replace		'attribute as replacement
 
 'counters
-dim indicies				'total attributes to find
-dim index						'current attribute index
+dim indicies			'total attributes to find
+dim index			'current attribute index
 
 'user input
 dim mode_string			'attribute type to perform find/replace within
 dim find_string			'string array of attribute ids to find
-dim replace_string	'string array of attribute ids as replacements
+dim replace_string		'string array of attribute ids as replacements
 
 'get user options
 mode_string = cstr(Inputbox("Attribute type (Load, Geometric...)", "Attribute Replace", "Material"))

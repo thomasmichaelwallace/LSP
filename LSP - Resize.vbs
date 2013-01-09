@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Resize Curve
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -21,44 +21,44 @@ $ENGINE=VBScript
 'Resize a patch load curved using the LSP Curve command.
 
 'interpetors
-dim left						'left-most point
-dim row							'data row
+dim left			'left-most point
+dim row				'data row
 
 'objects
-dim discrete				'patch load to alter
-dim pos							'LUSAS point position
+dim discrete			'patch load to alter
+dim pos				'LUSAS point position
 
 'circle definition
-dim radius					'circle radius
-dim ab							'circle centre x;y
+dim radius			'circle radius
+dim ab				'circle centre x;y
 
 'coordinate relations
 dim coords(2,1)			'coordinates of patch load curve
-dim chords(2)				'chord lengths between definition
+dim chords(2)			'chord lengths between definition
 
 'parametric angles
-dim t_abc(2)				'original parametric distances
-dim t_efg(2)				'altered parametric distances
-dim t(2)						'transformed parametric distances
+dim t_abc(2)			'original parametric distances
+dim t_efg(2)			'altered parametric distances
+dim t(2)			'transformed parametric distances
 
 'arcs
-dim S								'original arc length
-dim dS							'arc length change
-dim S_B							'arc length to mid-point
+dim S				'original arc length
+dim dS				'arc length change
+dim S_B				'arc length to mid-point
 
 'adjusters
-dim i								'ratio between mid-point and total arc length
-dim alpha						'angle increase from fixed point to alter length
+dim i				'ratio between mid-point and total arc length
+dim alpha			'angle increase from fixed point to alter length
 
 'arc angles
-dim theta						'original arc angle
-dim dtheta					'arc angle change
-dim theta_B					'arc angle to mid-point
+dim theta			'original arc angle
+dim dtheta			'arc angle change
+dim theta_B			'arc angle to mid-point
 
 'user options
-dim name						'name of patch load to alter
-dim L								'length to set patch load
-dim fixed						'fixed side
+dim name			'name of patch load to alter
+dim L				'length to set patch load
+dim fixed			'fixed side
 
 'pick up attribute from tree view
 name = "__Nothing__"
@@ -197,12 +197,12 @@ End Function
 Function Centre(R, x, y, x1, y1, x2, y2)
 	'return the centre of a circle from a point and a chord
 	
-	dim mx						'chord length in x direction
-	dim my						'chord length in y direction
-	dim h							'chord length
-	dim mh						'ratio of chord length to radius
-	dim a							'centre x
-	dim b							'centre y
+	dim mx			'chord length in x direction
+	dim my			'chord length in y direction
+	dim h			'chord length
+	dim mh			'ratio of chord length to radius
+	dim a			'centre x
+	dim b			'centre y
 	
 	'global coordinate lengths
 	mx = x2 - x1
@@ -224,8 +224,8 @@ End Function
 Function Parametric(R, a, b, x, y)
 	'return the parametric angle of a point on a circle
 		
-	dim tx						'parametric angle from x	
-	dim ty						'parametric angle from y
+	dim tx			'parametric angle from x	
+	dim ty			'parametric angle from y
 	
 	'establish posibilities
 	tx = acs((x-a)/R)
@@ -243,11 +243,11 @@ End Function
 Function ParaToCart(R, a, b, t)
 	'return a LUSAS position from parametric coordinates
 	
-	dim x							'cartiesian x
-	dim y							'cartiesian y
-	dim para(2)				'cartiesian collection
-	dim blank(2)			'blank vector
-	dim coord(2)			'LUSAS vector
+	dim x			'cartiesian x
+	dim y			'cartiesian y
+	dim para(2)		'cartiesian collection
+	dim blank(2)		'blank vector
+	dim coord(2)		'LUSAS vector
 	
 	'convert to coordinates
 	x = a + R*cos(t)

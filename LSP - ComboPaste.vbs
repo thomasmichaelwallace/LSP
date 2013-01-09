@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Combo Paste
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -21,15 +21,15 @@ $ENGINE=VBScript
 'Pastes load combination defintiions described by LSP Combo Copy command into model.
 
 'collections
-dim values					'array of loaded variables
+dim values			'array of loaded variables
 
 'objects
-dim loading					'load being copied
-dim value						'value of variable to be copied
+dim loading			'load being copied
+dim value			'value of variable to be copied
 
 'counters
-dim row							'current internal loading row being pasted
-dim rows						'total number of internal loading rows
+dim row				'current internal loading row being pasted
+dim rows			'total number of internal loading rows
 
 'storage
 dim paste_string		'complete data string from file
@@ -38,10 +38,10 @@ dim loading_name		'name of loading being copied
 
 'filesytem objects
 dim filesystem			'file system access
-dim text_file				'text file to save copying data
+dim text_file			'text file to save copying data
 
 'options
-dim file_path				'file path to save copied data
+dim file_path			'file path to save copied data
 
 'script level defaults and options
 file_path = GetSystemString("SCRIPTS") & "LSP\LSP - ComboCopy.txt"	

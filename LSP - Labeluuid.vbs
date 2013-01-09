@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Label UUID
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -20,31 +20,31 @@ $ENGINE=VBScript
 
 'Label nodes by LSP UUID from .csv file
 
-dim uuid_path			'path to model uuid definition file
+dim uuid_path		'path to model uuid definition file
 dim label_path		'path to label uuid definition file
 dim filesystem		'file system access object
-dim text_file			'file access object
+dim text_file		'file access object
 
-dim uuid_def			'uuid definition to parse
+dim uuid_def		'uuid definition to parse
 dim uuid_codes()	'model uuid map to ...
 dim id_codes()		'... model id map
 dim label_uuid()	'labels uuid map to ...
 dim label_text()	'... label text map
 
-dim index					'current map index
-dim match_id			'model/label node match index
-dim id						'serach index
+dim index		'current map index
+dim match_id		'model/label node match index
+dim id			'serach index
 
-dim pen_red				'pen red colour component
-dim pen_green			'pen green colour component
-dim pen_blue			'pen blue colour component
-dim font_def			'font definition string
+dim pen_red		'pen red colour component
+dim pen_green		'pen green colour component
+dim pen_blue		'pen blue colour component
+dim font_def		'font definition string
 
-dim align					'string prefix to position label text
-dim prefix				'label name prefix
+dim align		'string prefix to position label text
+dim prefix		'label name prefix
 
-dim node					'current node
-dim label					'current label
+dim node		'current node
+dim label		'current label
 
 'dump uuids in file path
 uuid_path = inputbox("Model uuid file", "UUID Labeller", "uuid.csv")

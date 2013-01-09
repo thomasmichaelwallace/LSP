@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Show Neighbour
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -20,10 +20,10 @@ $ENGINE=VBScript
 
 'Make neighbour surfaces of selected visible.
 
-dim surfaces				'selected surfaces
-dim surface					'working surface
-dim lines						'defining lines
-dim line						'current line
+dim surfaces			'selected surfaces
+dim surface			'working surface
+dim lines			'defining lines
+dim line			'current line
 dim adj_surfaces		'adjacent surfaces
 dim adj_surface			'working adjacent surface
 

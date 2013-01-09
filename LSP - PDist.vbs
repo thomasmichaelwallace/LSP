@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Point Distances
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -22,16 +22,16 @@ $ENGINE=VBScript
 
 Option Explicit
 
-dim points					'points to operate on
-dim p1							'point from
-dim p2							'point to
+dim points		'points to operate on
+dim p1			'point from
+dim p2			'point to
 
-dim dx							'delta x
-dim dy							'delta y
-dim dz							'delta z
-dim l								'length
-dim m								'gradient x:y
-dim theta						'angle XOY
+dim dx			'delta x
+dim dy			'delta y
+dim dz			'delta z
+dim l			'length
+dim m			'gradient x:y
+dim theta		'angle XOY
 
 points = selection.getObjects("Points")
 

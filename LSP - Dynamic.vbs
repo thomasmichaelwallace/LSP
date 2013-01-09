@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Apply Dynamic Factor
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -22,46 +22,46 @@ $ENGINE=VBScript
 
 'arrays
 dim factored_values	'running total of factored additions
-dim base_values			'initial values
-dim testcases				'loadcase ids subject to factoring
-dim livecases				'loadcase ids potentially subject to factoring
-dim basecase_ids		'loadcases included in base loadcase set
+dim base_values		'initial values
+dim testcases		'loadcase ids subject to factoring
+dim livecases		'loadcase ids potentially subject to factoring
+dim basecase_ids	'loadcases included in base loadcase set
 
 'objects
-dim node						'node to factor
-dim element					'element to factor
-dim component				'component currently being factored
-dim basecase				'base loadcase to factor from
+dim node		'node to factor
+dim element		'element to factor
+dim component		'component currently being factored
+dim basecase		'base loadcase to factor from
 
 'itterators
-dim row							'current row
-dim id							'current loadcase id
+dim row			'current row
+dim id			'current loadcase id
 dim delta_component	'factored addition
 
 'file objects
-dim text_file				'report file object
-dim filesystem			'filesystem access object
-dim file_path				'path of report file
+dim text_file		'report file object
+dim filesystem		'filesystem access object
+dim file_path		'path of report file
 
 'reports
-dim report_string		'string to append to report file
-dim delta_string		'summary of changes
+dim report_string	'string to append to report file
+dim delta_string	'summary of changes
 dim factored_string	'summary of factored values
-dim base_string			'summary of original values
-dim header_string		'summary header
+dim base_string		'summary of original values
+dim header_string	'summary header
 
 'user options
-dim element_id			'selected element id
-dim node_id					'selected node id
-dim delta_phi				'addative multiplcation factor
-dim basecase_id			'base loadcase id
-dim livecases_string'string defining live loadcases to factor
-dim mode_repeat			'repeater mode
+dim element_id		'selected element id
+dim node_id		'selected node id
+dim delta_phi		'addative multiplcation factor
+dim basecase_id		'base loadcase id
+dim livecases_string	'string defining live loadcases to factor
+dim mode_repeat		'repeater mode
 
 'script options
-dim entity					'entity type to factor
-dim components			'entity components to factor
-dim report_places		'number of decimal places to show in message box
+dim entity		'entity type to factor
+dim components		'entity components to factor
+dim report_places	'number of decimal places to show in message box
 
 mode_repeat = vbYes
 

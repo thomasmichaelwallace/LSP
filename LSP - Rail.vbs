@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Ballast Generator
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -26,32 +26,32 @@ Sub RailGen()
 	'generate joint springs between points offset vertically from eachother
 
 	'configuration defintion
-	Dim group_name			'string; name of group to work on
-	Dim delta						'long; z limit between low and high
-	Dim mesh						'string; name of mesh to apply
+	Dim group_name		'string; name of group to work on
+	Dim delta		'long; z limit between low and high
+	Dim mesh		'string; name of mesh to apply
 	
 	'array definition
-	Dim point_x()				'long; x coordinate of point
-	Dim point_low()			'int; id number of master point
-	Dim point_high()		'int; id number of slave point
+	Dim point_x()		'long; x coordinate of point
+	Dim point_low()		'int; id number of master point
+	Dim point_high()	'int; id number of slave point
 	Dim point_action()	'boolean; include point for joining
 
 	'limit definition
-	Dim point_max				'int; maximum no. of matchable points	
-	Dim points					'object; total no. of points in group
+	Dim point_max		'int; maximum no. of matchable points	
+	Dim points		'object; total no. of points in group
 
 	'iterator definition
-	Dim point						'int; index of current working point
-	Dim inspect					'object; point for inspection
-	Dim bound						'int; curret upper bound
+	Dim point		'int; index of current working point
+	Dim inspect		'object; point for inspection
+	Dim bound		'int; curret upper bound
 
 	'memory definition
-	Dim x								'long; x-coordinate of current point
-	Dim z								'long; z-coordinate of current point
-	Dim index						'int; index of matched point
-	Dim master					'object; master point
-	Dim slave						'object; slave point
-	Dim joint						'object; joint mesh attribute
+	Dim x			'long; x-coordinate of current point
+	Dim z			'long; z-coordinate of current point
+	Dim index		'int; index of matched point
+	Dim master		'object; master point
+	Dim slave		'object; slave point
+	Dim joint		'object; joint mesh attribute
 	
 	'default configuration
 	group_name = cstr(inputbox("Group to connect", "Ballast Generator", "Track"))

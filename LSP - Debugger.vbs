@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Debug Scripts
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -29,16 +29,16 @@ Sub LPI_Attr_Dir()
 	'__dir__ for LUSAS attributes		
 	
 	'variables
-	Dim dir					'returned string
-	Dim index				'index of names
-	Dim names				'colleciton of variable names
-	Dim variable		'variable type
-	Dim value				'value
+	Dim dir		'returned string
+	Dim index	'index of names
+	Dim names	'colleciton of variable names
+	Dim variable	'variable type
+	Dim value	'value
 	Dim value_temp	'tempoaray memory
 	
 	'user options
-	Dim parent			'attribute type
-	Dim child				'attribute name
+	Dim parent	'attribute type
+	Dim child	'attribute name
 	Dim family(1) 	'defaults
 	
 	'list of sensible options
@@ -105,11 +105,11 @@ Sub LPI_Ls_Dir()
 	'__dir__ for LUSAS load sets
 	
 	'variables
-	Dim dir					'returned string
-	Dim index				'index of names
-	Dim names				'colleciton of variable names
-	Dim variable		'variable type
-	Dim value				'value
+	Dim dir		'returned string
+	Dim index	'index of names
+	Dim names	'colleciton of variable names
+	Dim variable	'variable type
+	Dim value	'value
 	Dim value_temp	'tempoaray memory
 	
 	'user options

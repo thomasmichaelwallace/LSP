@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Beam Diagram
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -20,25 +20,25 @@ $ENGINE=VBScript
 
 'Generate force/moment diagrams for selected beam.
 
-dim mode						'mode string for results
-dim entities				'entity array for results
-dim entitiy					'current entity of results
+dim mode		'mode string for results
+dim entities		'entity array for results
+dim entitiy		'current entity of results
 
-dim points					'defining points
-dim start_point			'start point
-dim end_point				'end point
+dim points		'defining points
+dim start_point		'start point
+dim end_point		'end point
 
-dim phi							'view rotation about x-axis
-dim theta						'view rotation about y-axis
-dim psi							'view rotation about z-axis
+dim phi			'view rotation about x-axis
+dim theta		'view rotation about y-axis
+dim psi			'view rotation about z-axis
 
-dim dx							'delta xx
-dim dy							'delta yy
+dim dx			'delta xx
+dim dy			'delta yy
 
-dim pi							'the tastiest constant
+dim pi			'the tastiest constant
 
-dim matrix(3,3)			'lusas view rotation matrix
-dim old_matrix			'current lusas view rotation matrix
+dim matrix(3,3)		'lusas view rotation matrix
+dim old_matrix		'current lusas view rotation matrix
 
 'remember previous layout
 set old_visible = newObjectSet()

@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Match Properties
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -22,12 +22,12 @@ $ENGINE=VBScript
 
 Option Explicit
 
-dim master				'object to match
-dim slave					'object to change
+dim master		'object to match
+dim slave		'object to change
 dim assignments		'properties to match
 dim assignment		'current matching property
 dim assignattr		'current assigning attribute
-dim slave_id			'slave properties matching
+dim slave_id		'slave properties matching
 
 'get master properties
 set master = selection.getObjects("all")(0)

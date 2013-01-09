@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Fetch Results
-'	Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -25,12 +25,12 @@ dim base_values			'initial values
 dim basecase_ids		'loadcases included in base loadcase set
 
 'objects
-dim node						'node to factor
-dim element					'element to factor
-dim basecase				'base loadcase to factor from
+dim node			'node to factor
+dim element			'element to factor
+dim basecase			'base loadcase to factor from
 
 'itterators
-dim row							'current row
+dim row				'current row
 
 'reports
 dim base_string			'summary of original values
@@ -38,12 +38,12 @@ dim header_string		'summary header
 
 'user options
 dim element_id			'selected element id
-dim node_id					'selected node id
+dim node_id			'selected node id
 dim basecase_id			'base loadcase id
 dim mode_repeat
 
 'script options
-dim entity					'entity type to factor
+dim entity			'entity type to factor
 dim components			'entity components to factor
 dim report_places		'number of decimal places to show in message box
 
