@@ -111,7 +111,7 @@ if install = vbYes then
 			'show update version and date
 			case "__version__"
 				command = "getLPIversion()"
-				item = "Last Updated: " & FormatDateTime(Date(), 2) & " (v" & lsp_version & ")"
+				item = "LUSAS Scripting Pack (v" & lsp_version & ")"
 				call sub_menu.appendItem(item, command, help)
 				call sub_menu.enableItem(item, False)
 
