@@ -112,6 +112,9 @@ __main_menu__
         &Label by UUID
             Labeluuid
             Label nodes by LSP UUID from a csv file; useful for relating points between models.
+        Label by &Support
+            LabSupport
+            Label geometry with support value; useful for labeling pile stiffnesses.
         Set &Colour Scheme
             Colour
             Load a LSP colour scheme into LUSAS.

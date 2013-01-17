@@ -50,8 +50,14 @@ else
 	
 	'calculate properties
 	l = sqr(dx^2 + dy^2 + dz^2)
-	m = dy / dx
-	theta = atn(m)
+	if dx > 0 then
+		m = dy / dx
+		theta = atn(m)
+	else
+		m = "inf."
+		theta = atn(9999)
+	end if
+
 	
 	'report
 	textwin.writeLine("Distance information between points " & _
