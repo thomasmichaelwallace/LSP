@@ -23,3 +23,6 @@ $ENGINE=VBScript
 call setManualRefresh(false)		'set refreshing to automatic
 call suppressMessages(0)		'restore textwin messages
 call unInitStatusBarProgressCtrl()	'clear any progress bars
+
+'re-call lsp menu
+call fileOpen(GetSystemString("SCRIPTS") & "LSP\LSP - Menu.vbs")
