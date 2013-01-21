@@ -1,6 +1,6 @@
 &LSP
 __main_menu__     
-14.7-4.8a
+14.7-4.8b
     &Copy and Paste
     __sub_menu__   
         
@@ -28,10 +28,10 @@ __main_menu__
         &Distance Between Points
             PDist
             Provides detailed information about the distance between two points.
-        Mo&ve Point
+        &Move Point
             PMove
             Move point to particular coordinate.
-        &Merge Two Points
+        Mer&ge Two Points
             PMerge
             Merge two points to the centre position, even if they are not coincident.
         Fix Split &Surface Voids
