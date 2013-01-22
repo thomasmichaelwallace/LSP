@@ -69,8 +69,6 @@ do until text_file.AtEndOfStream
 	value_line = text_file.readLine()
 	values = split(value_line, ",")
 
-	call textwin.writeLine(proper_type & " - " & values(0))
-	
 	'implement custom db.existAttribute due to "type name" mismatch.
 	on error resume next
 		set attr = nothing
@@ -79,8 +77,6 @@ do until text_file.AtEndOfStream
 	
 	if attr is nothing then
 		'create attributes that don't (needs explicit typing)
-	
-		call textWin.writeLine("CREATE")
 	
 		'attribute creation switch board
 		select case proper_type
@@ -104,10 +100,8 @@ do until text_file.AtEndOfStream
 			value = values(i)
 		
 			'values as * will be skipped; allows partial edit.
-			call textwin.writeLine(value)
 			if value <> "*" then
 				'set values
-				call textwin.writeLine("sent")
 				call attr.setValue(name, value)					
 			end if
 
