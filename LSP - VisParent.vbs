@@ -32,7 +32,7 @@ geometries = selection.getObjects("All")
 for each geometry in geometries
 	
 	'get parents
-	parents = line.getHOFs()	
+	parents = geometry.getHOFs()	
 
 	'make parents visible
 	for each parent in parents
