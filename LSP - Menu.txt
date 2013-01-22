@@ -1,6 +1,6 @@
 &LSP
 __main_menu__     
-14.7-4.8e
+14.7-4.8f
     &Copy and Paste
     __sub_menu__   
         
@@ -115,6 +115,9 @@ __main_menu__
         Make &Neighbour Visible
             VisNext
             Makes the neighbouring geometry of the selected geometry type visible.
+        Make &Parent Visible
+            VisParent
+            Makes the parent geometry of selection visible.
         &Organise Groups
             GSort
             Sort groups alphabetically.

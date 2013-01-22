@@ -1,6 +1,6 @@
 $ENGINE=VBScript
 
-'The LUSAS Scriping Pack (LSP): Show Neighbour
+'The LUSAS Scriping Pack (LSP): Show Parent
 'Copyright (C) 2010-2013 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
@@ -18,14 +18,12 @@ $ENGINE=VBScript
 '    You should have received a copy of the GNU General Public License
 '    along with The LSP.  If not, see <http://www.gnu.org/licenses/>.
 
-'Make neighbour geometries of selected visible.
+'Make parent geometries of selected visible.
 
 dim geometries			'selected geometries
 dim geometry			'working geometry
-dim definers			'defining definers
-dim definer			'current definer
-dim adj_geometries		'adjacent geometries
-dim adj_geometry		'working adjacent geometry
+dim parents			'parents
+dim parent			'working parent
 
 'fetch selected geometries
 geometries = selection.getObjects("All")
@@ -33,15 +31,12 @@ geometries = selection.getObjects("All")
 'itterate through selected geometries
 for each geometry in geometries
 	
-	'for each definer get geometries
-	definers = geometry.getLOFs()			
-	for each definer in definers	
-		adj_geometries = definer.getHOFs()
-	
-		'make geometries visible
-		for each adj_geometry in adj_geometries	
-			call visible.add(adj_geometry)
+	'get parents
+	parents = line.getHOFs()	
 
-		next
+	'make parents visible
+	for each parent in parents
+		call visible.add(parent)
+
 	next
 next
