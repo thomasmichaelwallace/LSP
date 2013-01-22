@@ -68,18 +68,32 @@ text_file.readLine()	'example
 do until text_file.AtEndOfStream
 	value_line = text_file.readLine()
 	values = split(value_line, ",")
+
+	call textwin.writeLine(proper_type & " - " & values(0))
 	
-	'attribute creation switch board
-	select case proper_type
-		
-		case "Structural Support"
-			set attr = db.createSupportStructural(values(0))			
-		
-		case else
-			'cope with limited switchboard approach
-			call textwin.writeLine(proper_type & "/" & proper_subtype & " is not currently supported.")
-			set attr = nothing
-	end select
+	'implement custom db.existAttribute due to "type name" mismatch.
+	on error resume next
+		set attr = nothing
+		set attr = db.getAttribute(proper_type, values(0))	
+	on error goto 0
+	
+	if attr is nothing then
+		'create attributes that don't (needs explicit typing)
+	
+		call textWin.writeLine("CREATE")
+	
+		'attribute creation switch board
+		select case proper_type
+			
+			case "Structural Support"
+				set attr = db.createSupportStructural(values(0))		
+			
+			case else
+				'cope with limited switchboard approach
+				call textwin.writeLine(proper_type & "/" & proper_subtype & " is not currently supported.")
+				set attr = nothing
+		end select
+	end if
 	
 	'only proceed if attribute type is supported
 	if not attr is nothing then
@@ -89,9 +103,14 @@ do until text_file.AtEndOfStream
 			name = names(i)
 			value = values(i)
 		
-			'set values
-			call attr.setValue(name, value)		
-		
+			'values as * will be skipped; allows partial edit.
+			call textwin.writeLine(value)
+			if value <> "*" then
+				'set values
+				call textwin.writeLine("sent")
+				call attr.setValue(name, value)					
+			end if
+
 		next	
 	end if
 loop

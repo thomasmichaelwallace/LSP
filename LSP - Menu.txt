@@ -1,6 +1,6 @@
 &LSP
 __main_menu__     
-14.7-4.8f
+14.7-4.9
     &Copy and Paste
     __sub_menu__   
         
@@ -57,10 +57,10 @@ __main_menu__
             Clears all attributes and assignments from the selected objects.        
         &Create Attribute Header
             AttrHead
-            Creates an attribute header file, for use with the LSP Attribute Import command.
+            Creates an attribute header file, for use with the LSP Attribute Import command to make new and edit existing attributes.
         &Import Attributes
             AttrImport
-            Imports an attribute definition file, as defined by the LSP Attribute Header command, (Limited attribute support).
+            Imports an attribute definition file, as defined by the LSP Attribute Header command, (Limited attribute creation support).
     &Loading
     __sub_menu__
     
