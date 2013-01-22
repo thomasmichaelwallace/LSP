@@ -1,7 +1,7 @@
 $ENGINE=VBScript
 
 'The LUSAS Scriping Pack (LSP): Show Neighbour
-'Copyright (C) 2010-2012 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
+'Copyright (C) 2010-2013 Thomas Michael Wallace <http://www.thomasmichaelwallace.co.uk>
 
 ' This file is part of the LSP.
 
@@ -18,29 +18,29 @@ $ENGINE=VBScript
 '    You should have received a copy of the GNU General Public License
 '    along with The LSP.  If not, see <http://www.gnu.org/licenses/>.
 
-'Make neighbour surfaces of selected visible.
+'Make neighbour geometries of selected visible.
 
-dim surfaces			'selected surfaces
-dim surface			'working surface
+dim geometries			'selected geometries
+dim geometry			'working geometry
 dim lines			'defining lines
 dim line			'current line
-dim adj_surfaces		'adjacent surfaces
-dim adj_surface			'working adjacent surface
+dim adj_geometries		'adjacent geometries
+dim adj_geometry		'working adjacent geometry
 
-'fetch selected surfaces
-surfaces = selection.getObjects("Surface")
+'fetch selected geometries
+geometries = selection.getObjects("All")
 
-'itterate through selected surfaces
-for each surface in surfaces
+'itterate through selected geometries
+for each geometry in geometries
 	
-	'for each line get surfaces
-	lines = surface.getLOFs()			
+	'for each line get geometries
+	lines = geometry.getLOFs()			
 	for each line in lines	
-		adj_surfaces = line.getHOFs()
+		adj_geometries = line.getHOFs()
 	
-		'make surfaces visible
-		for each adj_surface in adj_surfaces	
-			call visible.add(adj_surface)
+		'make geometries visible
+		for each adj_geometry in adj_geometries	
+			call visible.add(adj_geometry)
 
 		next
 	next
