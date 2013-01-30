@@ -22,4 +22,4 @@ Author and Licence
 
 The LSP is primiarly written by Thomas Michael Wallace (www.thomasmichaelwallace.co.uk), and released under the GPL v3 licence.
 
-It should go without saying, but the LSP is not endorsed by LUSAS (www.LUSAS.com)
+It should go without saying, but the LSP is not endorsed by [LUSAS](http://www.LUSAS.com "LUSAS")
