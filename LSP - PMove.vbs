@@ -20,50 +20,72 @@ $ENGINE=VBScript
 
 'Precisely re-loacate point to position.
 
-dim from_x
-dim from_y
-dim from_z
+dim from_x  'initial position x
+dim from_y	'initial position y
+dim from_z	'initial positions z
 
-dim to_x
-dim to_y
-dim to_z
+dim to_x	'final position x
+dim to_y	'final position y
+dim to_z	'final position z
 
-dim vector(2)
+dim read_x	'input position x
+dim read_y	'input position y
+dim read_z	'input position z
 
-dim point
+dim vector(2)	'movement vector
 
-dim trans_attr
-dim transform
+dim point	'point to move
 
-'select first point
-set point = selection.getObjects("Points")(0)
-
-'get current location
-from_x = point.getX()
-from_y = point.getY()
-from_z = point.getZ()
+dim trans_attr	'transformation attribute
+dim transform	'transformation utility
 
 'get new location
-to_x = cdbl(inputbox("New x location", "Point re-locator", from_x))
-to_y = cdbl(inputbox("New y location", "Point re-locator", from_y))
-to_z = cdbl(inputbox("New z location", "Point re-locator", from_z))
+read_x = inputbox("New x location (use @ for current)", "Point re-locator", "@")
+read_y = inputbox("New y location (use @ for current)", "Point re-locator", "@")
+read_z = inputbox("New z location (use @ for current)", "Point re-locator", "@")
 
-'create vector
-vector(0) = to_x - from_x
-vector(1) = to_y - from_y
-vector(2) = to_z - from_z
+'select first point
+for each point in selection.getObjects("Points")
 
-'create temporary translation
-set trans_attr = database.createTranslationTransAttr("__LSP_PMove", vector)
-set transform = database.getTransformation("__LSP_PMove")
+	'get current location
+	from_x = point.getX()
+	from_y = point.getY()
+	from_z = point.getZ()
 
-'prepare for vanilla movement
-call geometryData.setAllDefaults()
-call geometryData.setTransformation(transform)
+	'run substitutions
+	if read_x = "@" then
+		to_x = from_x
+	else
+		to_x = cdbl(read_x)
+	end if
+	if read_y = "@" then
+		to_y = from_y
+	else
+		to_y = cdbl(read_y)
+	end if
+	if read_z = "@" then
+		to_z = from_z
+	else
+		to_z = cdbl(read_z)
+	end if
+	'create vector
+	vector(0) = to_x - from_x
+	vector(1) = to_y - from_y
+	vector(2) = to_z - from_z
+	
+	'create temporary translation
+	set trans_attr = database.createTranslationTransAttr("__LSP_PMove", vector)
+	set transform = database.getTransformation("__LSP_PMove")
 
-'run move
-call selection.move(geometryData)
+	'prepare for vanilla movement
+	call geometryData.setAllDefaults()
+	call geometryData.setTransformation(transform)
 
+	'run move
+	call selection.move(geometryData)
+
+next
+	
 'clean-up
 call database.updateMesh()
 call database.deleteAttribute(trans_attr)
