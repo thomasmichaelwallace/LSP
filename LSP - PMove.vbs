@@ -20,7 +20,7 @@ $ENGINE=VBScript
 
 'Precisely re-loacate point to position.
 
-dim from_x  'initial position x
+dim from_x	'initial position x
 dim from_y	'initial position y
 dim from_z	'initial positions z
 
