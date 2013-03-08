@@ -1,6 +1,6 @@
 &LSP
 __main_menu__     
-14.7-4.10a
+14.7-4.10c
     &Copy and Paste
     __sub_menu__   
         
@@ -127,6 +127,9 @@ __main_menu__
         Label by &Support
             LabSupport
             Label geometry with support value; useful for labeling pile stiffnesses.
+        Label by Po&int
+            LabPoint
+            Label points with specific coordinate vector; useful for labeling depths and extents.			
         Set &Colour Scheme
             ColourSwitch
             Load a LSP colour scheme into LUSAS.

@@ -20,18 +20,16 @@ $ENGINE=VBScript
 
 'Annotate objects with support conditions
 
-dim report_string	'variable look-up string
-dim result		'result to report
-dim type_code		'geometry type code
+dim vector		'coordinate vector to report
+dim position		'result to report
 
-dim geometry		'geometry object
-dim assignments		'geometry assignments
-dim support		'assigned support object
+dim point		'geometry object
 dim label		'annotation object
 
 dim font_def		'label font definition
 dim align		'label alginment prefix
 dim prefix		'label name prefix
+
 dim pen_red		'pen red content
 dim pen_green		'pen green content
 dim pen_blue		'pen blue content
@@ -41,66 +39,46 @@ dim y			'label y position
 dim z			'label z position
 
 'allow user to specify variable to report
-report_string = inputbox("Write varaible", "Annotate Supports", "Ustiff")
+vector = ucase(cstr(inputbox("Write coordinate", "Annotate Points", "z")))
 
 'label styling
-pen_red = 33
-pen_green = 33
-pen_blue = 33
+call db.getPen(18, pen_red, pen_green, pen_blue,1,1)
 font_def = "Arial;90;Normal;NoItalic;NoUnderline;NoStrikeOut;0;"
 
 'label setup
 align = "  "
-prefix = "_sup_"
+prefix = "_pnt_"
 
-'fetch every support of each selected geometry
-for each geometry in selection.getObjects("All")		
-	assignments = geometry.getAssignments("Support")	
-	for i = lbound(assignments) to ubound(assignments)	
-		set support = assignments(i).getAttribute()	
-		
-		'load specified report
-		result = support.getValue(report_string)
-		
-		'attempt to find label position for different geometric types
-		type_code = geometry.getTypeCode()		
-		select case type_code		
+'fetch every support of each selected point
+for each point in selection.getObjects("Points")
 			
-			'points are at points
-			case 1
-				x = geometry.getX()
-				y = geometry.getY()
-				z = geometry.getZ()
-			
-			'lines are at mid-point
-			case 2
-				x = 0.5*(geometry.getStartPosition()(0) + geometry.getEndPosition()(0))
-				y = 0.5*(geometry.getStartPosition()(1) + geometry.getEndPosition()(1))
-				z = 0.5*(geometry.getStartPosition()(2) + geometry.getEndPosition()(2))
+	'load specified position
+	select case vector
+	case "X"
+		position = cstr(point.getX())
+	case "Y"
+		position = cstr(point.getY())
+	case "Z"
+		position = cstr(point.getZ())
+	case else
+		position = ""
+	end select
+
+	'create label as annotation
+	set label = database.createAnnotationText()
+	call label.setText(align & position)
+	call label.setName(prefix & type_code & "_" & point.getID() & "_" & vector)
+	
+	'set colour information
+	call label.setColour(pen_red, pen_green, pen_blue)
+	call label.setFont(font_def)
+	
+	'position annotation by node
+	call label.setAlignTop()
+	call label.setAlignLeft()
+	call label.setRotation(0.0)
+	call label.fixToModel()
+	call label.setPosition(point.getX(), point.getY(), point.getZ())
+	call label.showInAllViews()			
 				
-			'just 0,0,0 anything else
-			case else
-				x = 0
-				y = 0
-				z = 0		
-		end select
-		
-		'create label as annotation
-		set label = database.createAnnotationText()
-		call label.setText(align & result)
-		call label.setName(prefix & type_code & "_" & geometry.getID() & "_" & i)
-		
-		'set colour information
-		call label.setColour(pen_red, pen_green, pen_blue)
-		call label.setFont(font_def)
-		
-		'position annotation by node
-		call label.setAlignTop()
-		call label.setAlignLeft()
-		call label.setRotation(0.0)
-		call label.fixToModel()
-		call label.setPosition(x, y, z)
-		call label.showInAllViews()			
-			
-	next
 next

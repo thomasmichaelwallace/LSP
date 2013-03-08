@@ -44,9 +44,7 @@ dim z			'label z position
 report_string = inputbox("Write varaible", "Annotate Supports", "Ustiff")
 
 'label styling
-pen_red = 33
-pen_green = 33
-pen_blue = 33
+call db.getPen(18, pen_red, pen_green, pen_blue,1,1)
 font_def = "Arial;90;Normal;NoItalic;NoUnderline;NoStrikeOut;0;"
 
 'label setup
