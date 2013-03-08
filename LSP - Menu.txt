@@ -1,6 +1,6 @@
 &LSP
 __main_menu__     
-14.7-4.10
+14.7-4.10a
     &Copy and Paste
     __sub_menu__   
         
@@ -128,7 +128,7 @@ __main_menu__
             LabSupport
             Label geometry with support value; useful for labeling pile stiffnesses.
         Set &Colour Scheme
-            Colour
+            ColourSwitch
             Load a LSP colour scheme into LUSAS.
             
     __main_seperator__
@@ -154,6 +154,9 @@ __main_menu__
         &Update LSP
             Install
             Download and update to the latest version of the LSP.
+        Re&load LSP
+            Menu
+            Reload LSP menu after manual update.
 
          __version__
             Last version/date that the LSP was updated on.

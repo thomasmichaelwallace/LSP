@@ -148,4 +148,6 @@ if install = vbYes then
 		set text_file = nothing
 	end if	
 	
+	'auto colour, if selected permenant
+	call fileOpen(script_path & "Colour.vbs")
 end if
