@@ -43,9 +43,10 @@ dim file_path			'definition file path
 
 'script options
 script_path = GetSystemString("SCRIPTS") & "LSP\LSP - "
-file_path = script_path & "Colour_" & inputbox("Style name (LUSAS, Obsidian, [custom])", "Colour loader", "Obsidian") & ".txt"
+file_path = script_path & "Colour_" & inputbox( _
+	"Style name (LUSAS, Obsidian, Quartz, Sun, Moon, [custom])", _
+	"Colour loader", "Obsidian") & ".txt"
 pen_style = 0
-pen_width = 1
 
 'read colour definition file
 set filesystem = CreateObject("Scripting.FileSystemObject")
@@ -53,6 +54,10 @@ set text_file = filesystem.OpenTextFile (file_path, 1)
 
 'initiate user colour mode
 call view.useSystemColours(false)
+
+'show copyright message
+colour_def = trim(text_file.ReadLine)
+call textwin.writeLine(colour_def)
 
 'load colour definitions
 do until text_file.AtEndOfStream		
@@ -63,6 +68,7 @@ do until text_file.AtEndOfStream
 	red_code 	= cint(trim(split(split(colour_def,":")(1),",")(0)))
 	green_code 	= cint(trim(split(split(colour_def,":")(1),",")(1)))
 	blue_code 	= cint(trim(split(split(colour_def,":")(1),",")(2)))
+	pen_width 	= cint(trim(split(split(colour_def,":")(1),",")(3)))	
 
 	'define background as pen 0
 	if pen_no = 0 then
