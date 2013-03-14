@@ -1,6 +1,6 @@
 &LSP
 __main_menu__     
-14.7-4.10c
+14.7-4.11
     &Copy and Paste
     __sub_menu__   
         
@@ -133,7 +133,13 @@ __main_menu__
         Set &Colour Scheme
             ColourSwitch
             Load a LSP colour scheme into LUSAS.
-            
+    Advanced &Solvers
+    __sub_menu__
+
+        &Solve as Seperate Process
+            Solver64
+            Runs Solver directly from command prompt; provides a fix for 64bit complex applications.           
+
     __main_seperator__
 
     LSP Options and &Development
