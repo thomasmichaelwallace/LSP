@@ -1,9 +1,9 @@
 &LSP
-__main_menu__     
-14.7-4.11a
+__main_menu__
+14.7-4.12c
     &Copy and Paste
-    __sub_menu__   
-        
+    __sub_menu__
+
         &Copy Geometry
             GeoCopy
             Writes point, line and surface definitions to file for copying geometry between models.
@@ -24,7 +24,7 @@ __main_menu__
             Pastes basic load combinations definitions copied using LSP.
     Model &Geometry
     __sub_menu__
-    
+
         &Distance Between Points
             PDist
             Provides detailed information about the distance between two points.
@@ -45,7 +45,7 @@ __main_menu__
             Generate joints between strings of points that are vertically offset from each other; useful for creating a rail with ballast.
     &Attributes
     __sub_menu__
-    
+
         Find and Replace &Attributes
             AttrReplace
             Performs batch find and replaces on attribute assignments, useful for sensitivity checking and last minute design changes!
@@ -54,7 +54,7 @@ __main_menu__
             Matches attributes and assignments of first selected object to all others.
         Clea&r Properties
             Clear
-            Clears all attributes and assignments from the selected objects.        
+            Clears all attributes and assignments from the selected objects.
         &Create Attribute Header
             AttrHead
             Creates an attribute header file, for use with the LSP Attribute Import command to make new and edit existing attributes.
@@ -63,15 +63,15 @@ __main_menu__
             Imports an attribute definition file, as defined by the LSP Attribute Header command, (Limited attribute creation support).
     &Loading
     __sub_menu__
-    
+
         Loadcase &Generator
-            Cases 
+            Cases
             Dervive cases from a loading array, recursively; useful for matching quasi-moving loads to temperature variations.
         Mass &Delete Loadcases
             DelLoad
             Mass delete a range of loadcases; useful when using an old model as a base.
         &AutoCant Rail Loading
-            AutoCant 
+            AutoCant
             Factor the train compound loading to represent the effects of cant and eccentricity (e.g. slew).
         &Factor Compound Loading
             Cant
@@ -84,7 +84,7 @@ __main_menu__
             Report results with altered live factors for a specific node/element/loadcase.
     &Complex Load Appliaction
     __sub_menu__
-    
+
         &Curve Compound Load
             Curve
             Curves a compound load to match a constant radius; useful for applying train loads to curved bridges.
@@ -93,13 +93,13 @@ __main_menu__
             Set the length of a curved patch load; useful for redefining after using the 'Curve' script.
         Load Lines to &Length
             Length
-            Apply a load along a continuous series of lines until a length is reached; useful for applying traction loads.    
+            Apply a load along a continuous series of lines until a length is reached; useful for applying traction loads.
     &Reporting and Factors
     __sub_menu__
-    
+
         &Fetch Nodal Results
             Fetch
-            Fetches the selected results from a single node; useful for checking extracted results and combined effects.    
+            Fetches the selected results from a single node; useful for checking extracted results and combined effects.
         Create Beam &Diagrams
             Diagrams
             Mass generate force/moment diagrams across selected beams.
@@ -129,7 +129,7 @@ __main_menu__
             Label geometry with support value; useful for labeling pile stiffnesses.
         Label by Po&int
             LabPoint
-            Label points with specific coordinate vector; useful for labeling depths and extents.			
+            Label points with specific coordinate vector; useful for labeling depths and extents.
         Set &Colour Scheme
             ColourSwitch
             Load a LSP colour scheme into LUSAS.
@@ -139,12 +139,15 @@ __main_menu__
         Solve as Single &Threaded Process
             Solver64
             Runs Solver directly from command prompt fixing 64bit complex applications.
+        Send to &Network Solver
+            Solverd
+            Send to be solved on a different computer.
 
     __main_seperator__
 
     LSP Options and &Development
     __sub_menu__
-        
+
         LPI &Debugging Tools
             Debugger
             Debugging and development tools for the LPI, see code for specifics.
