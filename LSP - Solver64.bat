@@ -21,13 +21,23 @@ ECHO.
 
 REM Run single threaded solver; workaround for 64bit errors with complex models.
 
-REM Prepare environment fix
+REM Delayed expansion?
 @ECHO ON
-SET %5=%6
-@ECHO OFF
 
+REM Prepare environment fix
+REM SET %5=%6
+REM Threads do not set - to be investigated; manual workaround.
+SET OMP_NUM_THREADS=1
+
+REM set paths
 %1
 CD %2
+
+REM kill old files
+DEL "..\..\..\Projects\LSP - Solver64.mys"
+DEL "..\..\..\Projects\LSP - Solver64.dat"
+
+REM establish local file
 COPY %3 "..\..\..\Projects\LSP - Solver64.dat"
 
 REM Run Solver
@@ -35,5 +45,3 @@ REM Run Solver
 
 REM Copy Back Results
 COPY "..\..\..\Projects\LSP - Solver64.mys" %4
-
-PAUSE

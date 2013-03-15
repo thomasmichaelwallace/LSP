@@ -1,6 +1,6 @@
 &LSP
 __main_menu__     
-14.7-4.11
+14.7-4.11a
     &Copy and Paste
     __sub_menu__   
         
@@ -136,9 +136,9 @@ __main_menu__
     Advanced &Solvers
     __sub_menu__
 
-        &Solve as Seperate Process
+        Solve as Single &Threaded Process
             Solver64
-            Runs Solver directly from command prompt; provides a fix for 64bit complex applications.           
+            Runs Solver directly from command prompt fixing 64bit complex applications.
 
     __main_seperator__
 

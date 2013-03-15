@@ -37,9 +37,9 @@ dim shell		'shell object
 script_path = GetSystemString("SCRIPTS") & "LSP\"
 solver_path = """" & script_path & "LSP - Solver64.bat" & """"
 
-'allow environmental options
-env_options = inputbox("Additional Environment?", "Solver64", "OMPT_SET_THREADS=1")
-env_vars = split(env_options, "=")
+'allow environmental options [off until batch corrected]
+'env_options = inputbox("Additional Environment?", "Solver64", "OMP_SET_THREADS=1")
+'env_vars = split(env_options, "=")
 
 'save database file
 call db.closeAllResults()
@@ -60,11 +60,11 @@ call db.exportSolver(file_base & ".dat")
 batch_cmd = solver_path & " " & work_drive & " " & _ 
 	work_path & " " & data_file & " " & results_file
 
-on error resume next	
-	for i = 0 to ubound(env_vars)
-		batch_cmd = batch_cmd & " " & env_vars(i) & " " & env_vars(i+1)
-	next
-on error goto 0
+'on error resume next	
+'	for i = 0 to ubound(env_vars)/2
+'		batch_cmd = batch_cmd & " " & env_vars(i*2) & " " & env_vars(i*2+1)
+'	next
+'on error goto 0
 
 'run runner
 set shell=createobject("wscript.shell")
