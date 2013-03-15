@@ -21,12 +21,8 @@ ECHO.
 
 REM Run single threaded solver; workaround for 64bit errors with complex models.
 
-REM Delayed expansion?
+REM set to single threaded mode
 @ECHO ON
-
-REM Prepare environment fix
-REM SET %5=%6
-REM Threads do not set - to be investigated; manual workaround.
 SET OMP_NUM_THREADS=1
 
 REM set paths

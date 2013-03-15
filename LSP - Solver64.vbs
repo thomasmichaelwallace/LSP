@@ -20,7 +20,6 @@ $ENGINE=VBScript
 
 'Run single threaded solver; workaround for 64bit errors with complex models.
 
-
 dim script_path		'path to lsp relative script directory
 dim solver_path		'path to solver batch file
 
@@ -36,10 +35,6 @@ dim shell		'shell object
 'script options
 script_path = GetSystemString("SCRIPTS") & "LSP\"
 solver_path = """" & script_path & "LSP - Solver64.bat" & """"
-
-'allow environmental options [off until batch corrected]
-'env_options = inputbox("Additional Environment?", "Solver64", "OMP_SET_THREADS=1")
-'env_vars = split(env_options, "=")
 
 'save database file
 call db.closeAllResults()
@@ -59,12 +54,6 @@ call db.exportSolver(file_base & ".dat")
 'build arguments
 batch_cmd = solver_path & " " & work_drive & " " & _ 
 	work_path & " " & data_file & " " & results_file
-
-'on error resume next	
-'	for i = 0 to ubound(env_vars)/2
-'		batch_cmd = batch_cmd & " " & env_vars(i*2) & " " & env_vars(i*2+1)
-'	next
-'on error goto 0
 
 'run runner
 set shell=createobject("wscript.shell")

@@ -21,16 +21,27 @@ $ENGINE=VBScript
 'Linker to run solver on seperate machine.
 
 dim script_path		'path to lsp relative script directory
-dim solver_path		'path to solver batch file
+dim setup_path		'path to solver daemon for instllation
+dim waiter_path 	'path to solver daemon waiter
+
+dim local_path		'daemon run path
+dim local_drive		'daemon run drive
 
 dim file_base		'base path of file
 dim data_file		'path to data file
 dim results_file	'path to results file
-dim work_path		'path to (local) working directory
-dim work_drive		'drive of (local) working directory
+dim log_file
+
+dim base_path		'path to (local) working directory
+dim lock_path		'path to lock file
+dim busy_path 		'path to busy file
+
+dim threads		'number of threads to use
+
+dim file_system		'file system connection
+dim shell		'shell object
 
 dim batch_cmd		'command to run solver batch file
-dim shell		'shell object
 
 'script options
 script_path = GetSystemString("SCRIPTS") & "LSP\"
@@ -41,19 +52,12 @@ waiter_path = script_path & "LSP - Solverw.bat"
 local_path = GetSystemString("SCRIPTS")
 local_drive = left(script_path, 2)
 
-'save database file
-call db.closeAllResults()
-call db.save()
-
 'configure file paths
 file_base = db.getDBFilename()
 file_base = left(file_base, len(file_base) - 4)
 data_file = file_base & ".dat"
 results_file = file_base & ".mys"
 log_file = file_base & ".log"
-
-'export data file
-call db.exportSolver(data_file)
 
 'configure daemon paths
 base_path = getCWD() & "\"
@@ -72,6 +76,13 @@ on error goto 0
 
 'get thread mode
 threads = inputbox("Thread limit", "Solver Daemon", "*")
+
+'save database file
+call db.closeAllResults()
+call db.save()
+
+'export data file
+call db.exportSolver(data_file)
 
 'build arguments
 batch_cmd = """" & waiter_path & """" & " " & _
