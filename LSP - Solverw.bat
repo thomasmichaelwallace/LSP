@@ -20,8 +20,18 @@ ECHO     along with The LSP.  If not, see (http://www.gnu.org/licenses/)
 
 REM Solver Daemon waiter object for running machine
 
+REM Move to daemon space
+SET daemon_path=%1
+SET daemon_drive=%daemon_path:~1,2%
+%daemon_drive%
+CD %daemon_path%
+
 REM Ensure solver daemon is waiting
-DEL %1
+IF EXIST %3 (
+		GOTO SKIPLOCK
+	) ELSE (
+		DEL %2
+	)
 
 :WAITLOCK
 	ECHO.
@@ -29,7 +39,7 @@ DEL %1
 	ECHO.
 	PING -n 10 localhost > NUL
 
-	IF EXIST %1 (
+	IF EXIST %2 (
 		ECHO Solver Daemon is waiting..
 	) ELSE (		
 		ECHO Solver Daemon does not appear to be running.
@@ -41,13 +51,29 @@ DEL %1
 		GOTO WAITLOCK
 	)
 
+:SKIPLOCK
+	
+ECHO.
+ECHO Waiting for daemon to become available...
+ECHO.
+	
+:QUEUEMODEL
+	IF EXIST %3 (
+		ECHO Solver daemon is still busy...
+		PING -n 10 localhost > NUL
+		GOTO QUEUEMODEL
+	) ELSE (
+		ECHO Daemon is available.
+	)
+	
+	
 REM Create solver daemon instructions
-ECHO %2 > "LSP - Solverd.dta"
-ECHO %3 > "LSP - Solverd.res"
-ECHO %4 > "LSP - Solverd.lgr"
-ECHO %5 > "LSP - Solverd.dri"
-ECHO %6 > "LSP - Solverd.pat"
-ECHO %7 > "LSP - Solverd.thd"
+ECHO %4 > "LSP - Solverd.dta"
+ECHO %5 > "LSP - Solverd.res"
+ECHO %6 > "LSP - Solverd.lgr"
+ECHO %7 > "LSP - Solverd.dri"
+ECHO %8 > "LSP - Solverd.pat"
+ECHO %9 > "LSP - Solverd.thd"
 
 ECHO "LOCKED" > "LSP - Solverw.tmp"
 

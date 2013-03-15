@@ -28,6 +28,9 @@ REM note drive
 SET working_dir=%CD%
 SET working_drive=%CD:~0,2%
 
+REM remove reservations
+DEL "LSP - Solverd.busy"
+
 :WAITLOCK
 	
 	REM Maintain lock file
@@ -48,6 +51,8 @@ ECHO.
 ECHO Preparing to solve...
 ECHO.
 
+ECHO BUSY > "LSP - Solverd.busy"
+
 @ECHO ON
 
 SET /p data_file=<"LSP - Solverd.dta"
@@ -65,18 +70,18 @@ REM set paths
 CD %local_path%
 
 REM kill old files
-DEL "..\..\..\Projects\LSP - Solverd.mys"
-DEL "..\..\..\Projects\LSP - Solverd.dat"
+DEL "..\..\Projects\LSP - Solverd.mys"
+DEL "..\..\Projects\LSP - Solverd.dat"
 
 REM establish local file
-COPY %data_file% "..\..\..\Projects\LSP - Solverd.dat"
+COPY %data_file% "..\..\Projects\LSP - Solverd.dat"
 
 REM Run Solver
-..\..\Lusas_S.exe "..\..\..\Projects\LSP - Solverd.dat"
+..\Lusas_S.exe "..\..\Projects\LSP - Solverd.dat"
 
 REM Copy Back Results and Log
-COPY "..\..\..\Projects\LSP - Solverd.mys" %results_file%
-COPY "..\..\..\Projects\LSP - Solverd.log" %log_file%
+COPY "..\..\Projects\LSP - Solverd.mys" %results_file%
+COPY "..\..\Projects\LSP - Solverd.log" %log_file%
 
 @ECHO OFF
 
@@ -87,5 +92,8 @@ ECHO.
 %working_drive%
 CD %working_dir%
 DEL "LSP - Solverw.tmp"
+
+REM remove reservations
+DEL "LSP - Solverd.busy"
 
 GOTO WAITLOCK

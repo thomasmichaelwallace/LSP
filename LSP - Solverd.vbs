@@ -38,7 +38,7 @@ setup_path = script_path & "LSP - Solverd.bat"
 waiter_path = script_path & "LSP - Solverw.bat"
 
 'solver location must be identical on daemon machine
-local_path = script_path
+local_path = GetSystemString("SCRIPTS")
 local_drive = left(script_path, 2)
 
 'save database file
@@ -52,27 +52,32 @@ data_file = file_base & ".dat"
 results_file = file_base & ".mys"
 log_file = file_base & ".log"
 
+'export data file
+call db.exportSolver(data_file)
+
 'configure daemon paths
 base_path = getCWD() & "\"
+base_path = inputbox("Daemon path", "Solver Daemon", base_path)
+if not right(base_path, 1) = "\" then base_path = base_path & "\"
 lock_path = base_path & "LSP - Solverd.lock"
+busy_path = base_path & "LSP - Solverd.busy"
 daemon_path = base_path & "LSP - Solverd.bat"
 
-'export data file
-call db.exportSolver(file_base & ".dat")
-
-'determine if daemon is installed
+'always attempt to install daemon- for upgrades.
 set file_system = CreateObject("Scripting.FileSystemObject")
-if not file_system.FileExists(daemon_path) then
-	textwin.writeLine("Installing LSP Daemon into working directory.")
+on error resume next
+	call textwin.writeLine("Installing deamon to " & daemon_path)
 	file_system.CopyFile setup_path, daemon_path, True
-end if
+on error goto 0
 
 'get thread mode
 threads = inputbox("Thread limit", "Solver Daemon", "*")
 
 'build arguments
 batch_cmd = """" & waiter_path & """" & " " & _
+	"""" & base_path & """" & " " & _
 	"""" & lock_path & """" & " " & _
+	"""" & busy_path & """" & " " & _	
 	"""" & data_file & """" & " " & _
 	"""" & results_file & """" & " " & _
 	"""" & log_file & """" & " " & _	
@@ -85,4 +90,4 @@ set shell=createobject("wscript.shell")
 shell.run batch_cmd, 1, True
 
 'load results
-call db.openResults(file_base & ".mys")
+call db.openResults(results_file)
