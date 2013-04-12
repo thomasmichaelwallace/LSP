@@ -1,6 +1,6 @@
 &LSP
 __main_menu__
-14.7-4.12f
+14.8-A11.1
     &Copy and Paste
     __sub_menu__
 
@@ -133,6 +133,9 @@ __main_menu__
         Set &Colour Scheme
             ColourSwitch
             Load a LSP colour scheme into LUSAS.
+        &Fetch Colour Scheme
+            ColourFetch
+            Fetches the colour scheme currently in use and outputs as LSP colour scheme.
     Advanced &Solvers
     __sub_menu__
 
