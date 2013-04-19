@@ -53,7 +53,7 @@ dim file_path			'file path to save copied data
 
 'script level defaults and options
 copy_ids_default = "All"
-file_path = GetSystemString("SCRIPTS") & "LSP\LSP - LoadCopy.txt"
+file_path = GetSystemString("SCRIPTS") & "LSP-User\LSP - LoadCopy.txt"
 copy_id_string = inputbox("Load ids to copy (1;2...)/All", "Load Copy", copy_ids_default)
 
 'provide "all" functionality

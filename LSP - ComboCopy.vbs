@@ -47,7 +47,7 @@ dim file_path		'file path to save copied data
 
 'script level defaults and options
 copy_ids_default = "All"
-file_path = GetSystemString("SCRIPTS") & "LSP\LSP - ComboCopy.txt"	
+file_path = GetSystemString("SCRIPTS") & "LSP-User\LSP - ComboCopy.txt"	
 copy_id_string = inputbox("Loadset ids to copy (1;2...)/All", "Combo Copy", copy_ids_default)
 
 'provide "all" functionality

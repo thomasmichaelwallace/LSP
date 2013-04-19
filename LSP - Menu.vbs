@@ -45,7 +45,7 @@ dim install_message		'update/install prefix
 'script options
 script_path = GetSystemString("SCRIPTS") & "LSP\LSP - "
 file_path = script_path & "Menu.txt"
-quiet_path = GetSystemString("SCRIPTS") & "LSP - Enabled.dat"
+quiet_path = GetSystemString("SCRIPTS") & "LSP-User\LSP - Enabled.dat"
 menu_path = GetSystemString("SCRIPTS") & "UserScripts\UserMenu.vbs"
 check_lsp_string = "LSP"
 

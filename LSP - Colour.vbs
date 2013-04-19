@@ -42,7 +42,7 @@ dim script_path			'script access path
 dim file_path			'definition file path
 
 'script options
-script_path = GetSystemString("SCRIPTS") & "LSP\LSP - "
+script_path = GetSystemString("SCRIPTS") & "LSP-User\LSP - "
 file_path = script_path & "Colour.txt"
 pen_style = 0
 
@@ -51,9 +51,8 @@ set filesystem = CreateObject("Scripting.FileSystemObject")
 if filesystem.fileexists(file_path) then
 	set text_file = filesystem.OpenTextFile (file_path, 1)
 
-	'trial: do not change thicknesses.
 	'initiate user colour mode
-	'call view.useSystemColours(false)
+	call view.useSystemColours(false)
 
 	'show copyright message
 	colour_def = trim(text_file.ReadLine)

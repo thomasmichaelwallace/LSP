@@ -21,10 +21,10 @@ $ENGINE=VBScript
 'Paste geometry as defined by the LSP Geometry Copy command. Note that assignment definitions, are
 'not supported.
 
-dim DEFINITIONS			'geometric definitions
-dim POINT_MAP			'map between old ids and new points
-dim LINE_MAP			'map between old ids and new lines
-dim SURFACE_MAP			'map between old ids and new surfaces
+dim definitions			'geometric definitions
+dim point_map			'map between old ids and new points
+dim line_map			'map between old ids and new lines
+dim surface_map			'map between old ids and new surfaces
 
 'switch board for assignments, [not implemented]
 if PasteGeometry() = "@A" then
@@ -71,7 +71,7 @@ function PasteGeometry()
 	dim total_lines		'total number of lines to process
 
 	'script level defaults and options
-	file_path = GetSystemString("SCRIPTS") & "LSP\LSP - GeoCopy.def"
+	file_path = GetSystemString("SCRIPTS") & "LSP-User\LSP - GeoCopy.def"
 	
 	'setup map between surface type codes and names
 		'LPI surface type map: [plannar, cylindrical, spherical, conical_

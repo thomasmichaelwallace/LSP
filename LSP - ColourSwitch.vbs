@@ -22,6 +22,7 @@ $ENGINE=VBScript
 
 'script options
 script_path = GetSystemString("SCRIPTS") & "LSP\LSP - "
+conf_path = GetSystemString("SCRIPTS") & "LSP-User\LSP - "
 
 'fetch prefered colour scheme
 file_path = script_path & "Colour_" & inputbox( _
@@ -33,7 +34,7 @@ set filesystem = CreateObject("Scripting.FileSystemObject")
 if filesystem.fileexists(file_path) then
 	
 	'copy file to location
-	filesystem.CopyFile file_path, script_path & "Colour.txt"
+	filesystem.CopyFile file_path, conf_path & "Colour.txt"
 	
 	'input colour swatch
 	call fileOpen(script_path & "Colour.vbs")

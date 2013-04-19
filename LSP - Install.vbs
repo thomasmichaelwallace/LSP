@@ -24,6 +24,7 @@ dim github_url		'github hosted lsp zip url
 dim append_req		'randomised request append to prevent cache
 
 dim lsp_path		'install path of lsp
+dim conf_path		'path to lsp configuration
 dim unzip_path		'temporary unzip path
 dim zip_file		'zip file location
 
@@ -42,6 +43,7 @@ github_url = "https://nodeload.github.com/thomasmichaelwallace/LSP/zip/master?rn
 'lsp to be installed locally to lusas drive
 lsp_path = GetSystemString("SCRIPTS") & "LSP"
 unzip_path = lsp_path & "_TMP"
+conf_path = lsp_path & "-User"
 zip_file = lsp_path & "-master.zip"
 
 'create file system connection
@@ -80,8 +82,9 @@ End if
 'close stream
 Set xml_http = Nothing
 
-'create lsp folder, and remove existing if required
+'create lsp folders, and remove existing if required
 if filesystem.FolderExists(lsp_path) then filesystem.DeleteFolder lsp_path, true
+if not filesystem.FolderExists(conf_path) then filesystem.CreateFolder conf_path, true
 if filesystem.FolderExists(unzip_path) then filesystem.DeleteFolder unzip_path, true
 filesystem.CreateFolder(unzip_path)
 

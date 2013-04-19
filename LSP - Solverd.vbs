@@ -30,7 +30,7 @@ dim local_drive		'daemon run drive
 dim file_base		'base path of file
 dim data_file		'path to data file
 dim results_file	'path to results file
-dim log_file
+dim log_file		'path to log file
 
 dim base_path		'path to (local) working directory
 dim lock_path		'path to lock file
