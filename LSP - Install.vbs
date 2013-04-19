@@ -84,7 +84,7 @@ Set xml_http = Nothing
 
 'create lsp folders, and remove existing if required
 if filesystem.FolderExists(lsp_path) then filesystem.DeleteFolder lsp_path, true
-if not filesystem.FolderExists(conf_path) then filesystem.CreateFolder conf_path, true
+if not filesystem.FolderExists(conf_path) then filesystem.CreateFolder(conf_path)
 if filesystem.FolderExists(unzip_path) then filesystem.DeleteFolder unzip_path, true
 filesystem.CreateFolder(unzip_path)
 
