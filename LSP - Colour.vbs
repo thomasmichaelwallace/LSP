@@ -51,8 +51,9 @@ set filesystem = CreateObject("Scripting.FileSystemObject")
 if filesystem.fileexists(file_path) then
 	set text_file = filesystem.OpenTextFile (file_path, 1)
 
+	'trial: do not change thicknesses.
 	'initiate user colour mode
-	call view.useSystemColours(false)
+	'call view.useSystemColours(false)
 
 	'show copyright message
 	colour_def = trim(text_file.ReadLine)
