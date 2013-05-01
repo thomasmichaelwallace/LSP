@@ -22,7 +22,7 @@ $ENGINE=VBScript
 
 'script options
 script_path = GetSystemString("SCRIPTS") & "LSP\LSP - "
-conf_path = GetSystemString("SCRIPTS") & "LSP-User\LSP - "
+conf_path = GetSystemString("CONFIGDIR") & "LSP\"
 
 'fetch prefered colour scheme
 file_path = script_path & "Colour_" & inputbox( _

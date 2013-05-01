@@ -38,15 +38,21 @@ dim help			'help string
 'script options
 dim install			'check install return
 dim script_path			'script access path
-dim file_path			'definition file path
+dim menu_path			'definition file path
+dim conf_path			'path to configuration directory
+dim flag_path			'appended file path
+dim open_path			'after open model hook path
+dim new_path			'after new model hook path
 dim check_lsp_string		'expected menu name
 dim install_message		'update/install prefix
 
 'script options
 script_path = GetSystemString("SCRIPTS") & "LSP\LSP - "
-file_path = script_path & "Menu.txt"
-quiet_path = GetSystemString("SCRIPTS") & "LSP-User\LSP - Enabled.dat"
-menu_path = GetSystemString("SCRIPTS") & "UserScripts\UserMenu.vbs"
+menu_path = script_path & "Menu.txt"
+conf_path = GetSystemString("CONFIGDIR")
+flag_path = conf_path & "LSP\LSP - LSP - Enabled.dat"
+open_path = GetSystemString("SCRIPTS") & "afterOpenModel.vbs"
+new_path = GetSystemString("SCRIPTS") & "afterNewModel.vbs"
 check_lsp_string = "LSP"
 
 'setup objects
@@ -61,7 +67,7 @@ else
 end if
 
 'check to see if load is silent
-if filesystem.fileexists(quiet_path) then
+if filesystem.fileexists(flag_path) then
 	install = vbYes
 else
 	install = msgbox(install_message & " and register the LUSAS Scripting Pack Menu?", _
@@ -72,7 +78,7 @@ end if
 if install = vbYes then
 
 	'prepare file
-	set text_file = filesystem.OpenTextFile (file_path, 1)
+	set text_file = filesystem.OpenTextFile (menu_path, 1)
 
 	'read through lsp menu defintiion file
 	do until text_file.AtEndOfStream
@@ -135,17 +141,24 @@ if install = vbYes then
 	set text_file = nothing
 
 	'make persistent
-	if not filesystem.FileExists(quiet_path) then
-		set text_file = filesystem.CreateTextFile(quiet_path)
+	if not filesystem.FileExists(flag_path) then
+		set text_file = filesystem.CreateTextFile(flag_path)
 		text_file.close
 		set text_file = nothing
 		
-		'append lsp menu to start-up file
-		set text_file = filesystem.OpenTextFile(menu_path, 8)
+		'add lsp menu to open model start-up hook
+		set text_file = filesystem.OpenTextFile(open_path, 8)
 		text_file.writeLine ""
 		text_file.writeLine "FileOpen(""" & script_path & "Menu"")"
 		text_file.close
 		set text_file = nothing
+		
+		'add lsp menu to new model start-up hook
+		set text_file = filesystem.OpenTextFile(new_path, 8)
+		text_file.writeLine ""
+		text_file.writeLine "FileOpen(""" & script_path & "Menu"")"
+		text_file.close
+		set text_file = nothing		
 	end if	
 	
 	'auto colour, if selected permenant

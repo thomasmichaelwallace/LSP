@@ -44,7 +44,7 @@ dim text_file			'text file to save copying data
 dim file_path			'file path to save copied data
 
 'script level defaults and options
-file_path = GetSystemString("SCRIPTS") & "LSP-User\LSP - ComboCopy.txt"	
+file_path = GetSystemString("CONFIGDIR") & "LSP\LSP - ComboCopy.txt"
 
 'prepare file
 set filesystem = CreateObject("Scripting.FileSystemObject")

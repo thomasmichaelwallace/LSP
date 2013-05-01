@@ -74,7 +74,7 @@ sub CopyGeometry(assign)
 	dim total_lines		'total number of lines to create	
 
 	'script level defaults and options
-	file_path = GetSystemString("SCRIPTS") & "LSP-User\LSP - GeoCopy.def"
+	file_path = GetSystemString("CONFIGDIR") & "LSP\LSP - GeoCopy.def"
 	count = 0
 
 	'surpress messages and report

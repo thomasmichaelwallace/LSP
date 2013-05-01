@@ -43,7 +43,7 @@ github_url = "https://nodeload.github.com/thomasmichaelwallace/LSP/zip/master?rn
 'lsp to be installed locally to lusas drive
 lsp_path = GetSystemString("SCRIPTS") & "LSP"
 unzip_path = lsp_path & "_TMP"
-conf_path = lsp_path & "-User"
+conf_path = GetSystemString("CONFIGDIR") & "LSP"
 zip_file = lsp_path & "-master.zip"
 
 'create file system connection

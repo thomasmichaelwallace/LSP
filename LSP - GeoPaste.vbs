@@ -71,7 +71,7 @@ function PasteGeometry()
 	dim total_lines		'total number of lines to process
 
 	'script level defaults and options
-	file_path = GetSystemString("SCRIPTS") & "LSP-User\LSP - GeoCopy.def"
+	file_path = GetSystemString("CONFIGDIR") & "LSP\LSP - GeoCopy.def"
 	
 	'setup map between surface type codes and names
 		'LPI surface type map: [plannar, cylindrical, spherical, conical_

@@ -42,8 +42,8 @@ dim script_path			'script access path
 dim file_path			'definition file path
 
 'script options
-script_path = GetSystemString("SCRIPTS") & "LSP-User\LSP - "
-file_path = script_path & "Colour.txt"
+conf_path = GetSystemString("CONFIGDIR") & "LSP\"
+file_path = conf_path & "Colour.txt"
 pen_style = 0
 
 'read colour definition file if exists
