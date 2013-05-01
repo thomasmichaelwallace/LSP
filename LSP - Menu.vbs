@@ -50,7 +50,7 @@ dim install_message		'update/install prefix
 script_path = GetSystemString("SCRIPTS") & "LSP\LSP - "
 menu_path = script_path & "Menu.txt"
 conf_path = GetSystemString("CONFIGDIR")
-flag_path = conf_path & "LSP\LSP - LSP - Enabled.dat"
+flag_path = conf_path & "LSP\LSP - Enabled.dat"
 open_path = GetSystemString("CONFIGDIR") & "afterOpenModel.vbs"
 new_path = GetSystemString("CONFIGDIR") & "afterNewModel.vbs"
 check_lsp_string = "LSP"
