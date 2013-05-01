@@ -30,14 +30,15 @@ REM set paths
 CD %2
 
 REM kill old files
-DEL "..\..\..\Projects\LSP - Solver64.mys"
-DEL "..\..\..\Projects\LSP - Solver64.dat"
+MKDIR Solvers
+DEL "Solvers\LSP - Solver64.mys"
+DEL "Solvers\LSP - Solver64.dat"
 
 REM establish local file
-COPY %3 "..\..\..\Projects\LSP - Solver64.dat"
+COPY %3 "Solvers\LSP - Solver64.dat"
 
 REM Run Solver
-..\..\Lusas_S.exe "..\..\..\Projects\LSP - Solver64.dat"
+%5 "Solvers\LSP - Solver64.dat"
 
 REM Copy Back Results
-COPY "..\..\..\Projects\LSP - Solver64.mys" %4
+COPY "Solvers\LSP - Solver64.dat" %4

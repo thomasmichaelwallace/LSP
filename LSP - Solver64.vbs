@@ -34,7 +34,8 @@ dim shell		'shell object
 
 'script options
 script_path = GetSystemString("SCRIPTS") & "LSP\"
-solver_path = """" & script_path & "LSP - Solver64.bat" & """"
+daemon_path = """" & script_path & "LSP - Solver64.bat" & """"
+conf_path = GetSystemString("CONFIGDIR") & "LSP\"
 
 'save database file
 call db.closeAllResults()
@@ -45,15 +46,17 @@ file_base = db.getDBFilename()
 file_base = left(file_base, len(file_base) - 4)
 data_file = """" & file_base & ".dat" & """"
 results_file = """" & file_base & ".mys" & """"
-work_path = """" & script_path & """"
-work_drive = left(script_path, 2)
+work_path = """" & conf_path & """"
+work_drive = left(conf_path, 2)
+solver_path = """" & GetSystemString("Programs") & "Lusas_S.exe" & """"
 
 'export data file
 call db.exportSolver(file_base & ".dat")
 
 'build arguments
-batch_cmd = solver_path & " " & work_drive & " " & _ 
-	work_path & " " & data_file & " " & results_file
+batch_cmd = daemon_path & " " & work_drive & " " & _ 
+	work_path & " " & data_file & " " & results_file & " " & _ 
+    solver_path
 
 'run runner
 set shell=createobject("wscript.shell")
