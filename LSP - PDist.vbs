@@ -35,6 +35,12 @@ dim theta		'angle XOY
 
 points = selection.getObjects("Points")
 
+'attempt to imply points from line, if availble
+if not ubound(points) = 1 then
+    if ubound(selection.getObjects("Lines")) = 0 Then _
+        points = selection.getObjects("Lines")(0).getLOFs()
+end if
+
 'check for sane input
 if not ubound(points) = 1 then
 	textwin.writeLine("Please select exactly two points.")
