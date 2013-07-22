@@ -91,7 +91,7 @@ sub CopyGeometry(assign)
 	'init progress bar
 	total_lines = ubound(points) + ubound(lines) + ubound(combined_lines) + ubound(surfaces)
 	if assign then total_lines = total_lines * 2
-	call initStatusBarProgressCtrl("Copying geometry...", cint(total_lines))
+	call initStatusBarProgressCtrl("Copying geometry...", clng(total_lines))
 	
 	'warn about unhandled object types
 	if selection.count("Volumes") > 0 then
